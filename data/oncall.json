@@ -1,9 +1,0 @@
-{
-  "_note": "교육용 가짜 온콜 표. 실존 인물 아님. 연락은 사내 메신저 핸들로만 표기",
-  "order-api": {"primary": "주문플랫폼팀 정온콜 (@order-oncall)", "secondary": "주문플랫폼팀 리드 (@order-lead)", "escalation": "SRE 리드 (@sre-lead)"},
-  "payment-api": {"primary": "결제플랫폼팀 정온콜 (@pay-oncall)", "secondary": "결제플랫폼팀 리드 (@pay-lead)", "escalation": "SRE 리드 (@sre-lead)"},
-  "auth-api": {"primary": "인증플랫폼팀 정온콜 (@auth-oncall)", "secondary": "보안운영팀 온콜 (@secops-oncall)", "escalation": "SRE 리드 (@sre-lead)"},
-  "notification-worker": {"primary": "메시징플랫폼팀 정온콜 (@msg-oncall)", "secondary": "메시징플랫폼팀 리드 (@msg-lead)", "escalation": "SRE 리드 (@sre-lead)"},
-  "search-api": {"primary": "검색팀 정온콜 (@search-oncall)", "secondary": "인프라 온콜 (@infra-oncall)", "escalation": "SRE 리드 (@sre-lead)"},
-  "database": {"primary": "DBA 온콜 (@dba-oncall)", "secondary": "DBA 팀장 (@dba-lead)", "escalation": "SRE 리드 (@sre-lead)"}
-}
