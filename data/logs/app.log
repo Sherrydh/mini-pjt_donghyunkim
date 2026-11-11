@@ -1,0 +1,18 @@
+2026-11-11T09:58:02Z INFO  order-api   GET /orders/8812 200 142ms
+2026-11-11T09:58:40Z INFO  order-api   POST /orders 201 310ms user=kim.minsu@shop-customer.example phone=010-2345-6789
+2026-11-11T10:01:13Z WARN  order-api   Slow query detected: SELECT * FROM orders WHERE created_at > ? (elapsed=18.2s)
+2026-11-11T10:02:05Z ERROR order-api   HikariPool-1 - Connection is not available, request timed out after 30000ms
+2026-11-11T10:02:06Z ERROR order-api   POST /orders 500 30012ms user=lee.jiyoung@shop-customer.example
+2026-11-11T10:02:09Z ERROR order-api   HikariPool-1 - Connection is not available, request timed out after 30000ms
+2026-11-11T10:02:30Z WARN  order-api   Slow query detected: SELECT * FROM orders WHERE created_at > ? (elapsed=22.7s)
+2026-11-11T10:03:11Z ERROR order-api   GET /orders/9013 504 30001ms
+2026-11-11T09:55:00Z INFO  payment-api POST /payments 200 220ms card=4111-****-****-1111
+2026-11-11T10:00:12Z INFO  payment-api POST /payments 200 245ms
+2026-11-11T10:04:31Z WARN  payment-api Upstream order-api slow response 4100ms
+2026-11-11T09:50:00Z INFO  auth-api    POST /login 200 80ms
+2026-11-11T10:00:20Z INFO  auth-api    POST /login 200 77ms
+2026-11-11T09:40:10Z WARN  notification-worker Revoking previously assigned partitions [order-events-3, order-events-7]
+2026-11-11T09:45:44Z ERROR notification-worker SMS provider timeout after 5000ms to=010-9876-5432
+2026-11-11T09:46:02Z WARN  notification-worker Revoking previously assigned partitions [order-events-1]
+2026-11-11T09:30:00Z INFO  search-api  GET /search?q=shoes 200 95ms
+2026-11-11T09:59:59Z INFO  search-api  GET /search?q=bag 200 102ms

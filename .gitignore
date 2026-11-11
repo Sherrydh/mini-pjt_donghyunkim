@@ -1,0 +1,32 @@
+# 비밀값 (API 키 등) — 절대 커밋 금지
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# 벡터DB·캐시 (재생성 가능)
+chroma_db/
+.chroma/
+faiss_index/
+.cache/
+
+# Ouroboros 셋업 백업 · 로컬 상태
+CLAUDE.md.bak
+.ouroboros/artifacts/
+
+# Claude Code 개인 설정
+.claude/settings.local.json
+
+# OS·에디터
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
