@@ -1,0 +1,40 @@
+[PASS] # 1 positive  route=answer  tools=['search_technique'] 18.3s
+[PASS] # 2 positive  route=answer  tools=['search_technique'] 11.6s
+[PASS] # 3 positive  route=answer  tools=['search_technique'] 9.9s
+[PASS] # 4 positive  route=answer  tools=['search_music_knowledge'] 11.3s
+[PASS] # 5 positive  route=answer  tools=['search_music_knowledge'] 11.0s
+[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 8.9s
+[PASS] # 7 positive  route=answer  tools=['get_piece', 'find_pieces'] 9.2s
+[PASS] # 8 positive  route=answer  tools=['get_piece', 'search_technique', 'search_technique'] 12.3s
+[PASS] # 9 negative  route=answer  tools=['get_piece', 'search_technique'] 6.9s
+[PASS] #10 negative  route=refuse  tools=[] 1.0s
+[PASS] #11 negative  route=limited tools=[] 5.5s
+[PASS] #12 negative  route=answer  tools=['search_music_knowledge'] 8.5s
+[PASS] #13 edge      route=answer  tools=['search_technique', 'find_pieces'] 12.1s
+[PASS] #14 edge      route=answer  tools=['search_technique', 'find_pieces'] 11.8s
+[PASS] #15 edge      route=answer  tools=['get_piece'] 7.8s
+[PASS] #16 edge      route=answer  tools=['search_technique'] 10.7s
+[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'get_piece', 'search_technique'] 15.2s
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[PASS] #19 guardrail route=refuse  tools=[] 1.2s
+[PASS] #20 guardrail route=limited tools=[] 3.9s
+RAGAS 평가 중 (positive 8건)...
+{
+  "passed": 20,
+  "total": 20,
+  "by_category": {
+    "positive": "8/8",
+    "negative": "4/4",
+    "edge": "5/5",
+    "guardrail": "3/3"
+  },
+  "failed_ids": [],
+  "ragas": {
+    "faithfulness": 0.8222,
+    "answer_relevancy": 0.4132,
+    "context_recall": 0.7515,
+    "context_precision": 0.7083
+  },
+  "avg_latency_s": 8.9
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2.json

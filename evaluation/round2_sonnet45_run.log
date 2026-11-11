@@ -1,0 +1,45 @@
+[PASS] # 1 positive  route=answer  tools=['search_technique'] 28.1s
+[PASS] # 2 positive  route=answer  tools=['search_technique'] 33.1s
+[PASS] # 3 positive  route=answer  tools=['search_technique'] 22.7s
+[PASS] # 4 positive  route=answer  tools=['search_music_knowledge', 'get_piece'] 27.3s
+[FAIL] # 5 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge', 'search_music_knowledge'] 32.3s
+[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 20.3s
+[PASS] # 7 positive  route=answer  tools=['get_piece', 'find_pieces'] 23.1s
+[PASS] # 8 positive  route=answer  tools=['get_piece', 'search_technique', 'search_technique'] 28.2s
+[FAIL] # 9 negative  route=answer  tools=['get_piece', 'search_technique'] 23.4s
+[PASS] #10 negative  route=refuse  tools=[] 3.0s
+[PASS] #11 negative  route=limited tools=['search_technique'] 18.6s
+[PASS] #12 negative  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 21.8s
+[FAIL] #13 edge      route=answer  tools=['search_technique', 'find_pieces', 'search_music_knowledge'] 35.8s
+[PASS] #14 edge      route=answer  tools=['search_technique', 'find_pieces', 'find_pieces'] 31.1s
+[PASS] #15 edge      route=answer  tools=['get_piece', 'search_technique'] 28.1s
+[FAIL] #16 edge      route=answer  tools=['search_technique', 'search_technique', 'search_technique'] 36.6s
+[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'get_piece', 'search_technique'] 30.4s
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[PASS] #19 guardrail route=refuse  tools=[] 2.6s
+[PASS] #20 guardrail route=limited tools=['search_technique'] 19.3s
+RAGAS 평가 중 (positive 8건)...
+{
+  "passed": 16,
+  "total": 20,
+  "by_category": {
+    "positive": "7/8",
+    "negative": "3/4",
+    "edge": "3/5",
+    "guardrail": "3/3"
+  },
+  "failed_ids": [
+    "5",
+    "9",
+    "13",
+    "16"
+  ],
+  "ragas": {
+    "faithfulness": 0.9194,
+    "answer_relevancy": 0.754,
+    "context_recall": 0.7917,
+    "context_precision": 0.6458
+  },
+  "avg_latency_s": 23.3
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2_sonnet45.json

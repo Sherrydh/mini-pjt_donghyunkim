@@ -1,0 +1,58 @@
+[FAIL] # 1 positive  route=error   tools=[] 144.8s
+[PASS] # 2 positive  route=answer  tools=['search_technique'] 165.9s
+[PASS] # 3 positive  route=answer  tools=['search_technique', 'search_technique'] 249.9s
+[FAIL] # 4 positive  route=error   tools=[] 67.5s
+[FAIL] # 5 positive  route=error   tools=[] 38.3s
+[FAIL] # 6 positive  route=error   tools=[] 2.1s
+[FAIL] # 7 positive  route=error   tools=[] 1.9s
+[FAIL] # 8 positive  route=error   tools=[] 4.5s
+[FAIL] # 9 negative  route=error   tools=[] 1.9s
+[FAIL] #10 negative  route=error   tools=[] 2.0s
+[FAIL] #11 negative  route=error   tools=[] 2.0s
+[FAIL] #12 negative  route=error   tools=[] 2.0s
+[FAIL] #13 edge      route=error   tools=[] 2.0s
+[FAIL] #14 edge      route=error   tools=[] 3.9s
+[FAIL] #15 edge      route=error   tools=[] 2.0s
+[FAIL] #16 edge      route=error   tools=[] 2.0s
+[FAIL] #17 edge      route=error   tools=[] 1.9s
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[FAIL] #19 guardrail route=error   tools=[] 0.3s
+[FAIL] #20 guardrail route=error   tools=[] 3.9s
+RAGAS 평가 중 (positive 2건)...
+{
+  "passed": 3,
+  "total": 20,
+  "by_category": {
+    "positive": "2/8",
+    "negative": "0/4",
+    "edge": "0/5",
+    "guardrail": "1/3"
+  },
+  "failed_ids": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "19",
+    "20"
+  ],
+  "ragas": {
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.5206,
+    "context_recall": 0.75,
+    "context_precision": 0.625
+  },
+  "avg_latency_s": 34.9
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2_sonnet46.json

@@ -1,0 +1,1519 @@
+[
+  {
+    "id": "bach-anh114",
+    "composer": "Johann Sebastian Bach",
+    "composer_ko": "요한 제바스티안 바흐",
+    "title": "Minuet in G major BWV Anh.114 (Notebook for Anna Magdalena Bach)",
+    "title_ko": "미뉴에트 G장조 BWV Anh.114 (안나 막달레나 바흐를 위한 음악수첩)",
+    "aliases": [
+      "바흐 미뉴에트",
+      "미뉴에트 G장조",
+      "Minuet in G",
+      "Anh.114",
+      "안나 막달레나 미뉴에트"
+    ],
+    "era": "baroque",
+    "level": 1,
+    "level_range": [
+      1,
+      1
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Notebook-for-Anna-Magdalena-Bach/HN-349",
+    "techniques": [
+      "양손 독립",
+      "레가토"
+    ],
+    "prerequisites": [],
+    "notes": "오늘날 크리스티안 페촐트 작품으로 보는 견해가 일반적. 입문 첫 바로크 곡으로 적합."
+  },
+  {
+    "id": "bach-anh126",
+    "composer": "Johann Sebastian Bach",
+    "composer_ko": "요한 제바스티안 바흐",
+    "title": "Musette in D major BWV Anh.126 (Notebook for Anna Magdalena Bach)",
+    "title_ko": "뮈제트 D장조 BWV Anh.126 (안나 막달레나 바흐를 위한 음악수첩)",
+    "aliases": [
+      "바흐 뮈제트",
+      "뮤제트",
+      "Musette",
+      "Anh.126"
+    ],
+    "era": "baroque",
+    "level": 1,
+    "level_range": [
+      1,
+      1
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Notebook-for-Anna-Magdalena-Bach/HN-349",
+    "techniques": [
+      "옥타브",
+      "도약",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "bach-anh114"
+    ],
+    "notes": "왼손 옥타브 드론 위의 경쾌한 곡."
+  },
+  {
+    "id": "bach-bwv846-prelude",
+    "composer": "Johann Sebastian Bach",
+    "composer_ko": "요한 제바스티안 바흐",
+    "title": "Prelude in C major BWV 846 (Well-Tempered Clavier I)",
+    "title_ko": "평균율 클라비어곡집 1권 프렐류드 C장조 BWV 846",
+    "aliases": [
+      "바흐 프렐류드 C장조",
+      "평균율 1번",
+      "BWV 846",
+      "평균율 프렐류드 1번"
+    ],
+    "era": "baroque",
+    "level": 1,
+    "level_range": [
+      1,
+      1
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Prelude-and-Fugue-C-major-BWV-846-Well-Tempered-Clavier-Part-I/HN-642",
+    "techniques": [
+      "아르페지오",
+      "화음",
+      "레가토"
+    ],
+    "prerequisites": [
+      "bach-anh114"
+    ],
+    "notes": "Henle 기준 프렐류드는 1, 짝을 이루는 푸가 C장조는 6(중급)으로 별도 표기됨."
+  },
+  {
+    "id": "bach-bwv924",
+    "composer": "Johann Sebastian Bach",
+    "composer_ko": "요한 제바스티안 바흐",
+    "title": "Little Prelude in C major BWV 924",
+    "title_ko": "작은 프렐류드 C장조 BWV 924",
+    "aliases": [
+      "바흐 작은 프렐류드",
+      "소 프렐류드",
+      "BWV 924"
+    ],
+    "era": "baroque",
+    "level": 2,
+    "level_range": [
+      2,
+      2
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/us/At-the-Piano-16-well-known-original-pieces/HN-1816",
+    "techniques": [
+      "아르페지오",
+      "화음",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "bach-bwv846-prelude"
+    ],
+    "notes": "빌헬름 프리데만 바흐를 위한 음악수첩 수록."
+  },
+  {
+    "id": "bach-invention-1",
+    "composer": "Johann Sebastian Bach",
+    "composer_ko": "요한 제바스티안 바흐",
+    "title": "Two-Part Invention No.1 in C major BWV 772",
+    "title_ko": "2성 인벤션 1번 C장조 BWV 772",
+    "aliases": [
+      "인벤션 1번",
+      "바흐 인벤션 1번",
+      "BWV 772",
+      "2성 인벤션 1번"
+    ],
+    "era": "baroque",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Two-Part-Inventions/HN-1591",
+    "techniques": [
+      "다성부(폴리포니)",
+      "양손 독립",
+      "트릴/장식음"
+    ],
+    "prerequisites": [
+      "bach-anh114",
+      "bach-bwv924"
+    ],
+    "notes": "본격적인 2성 대위법 입문곡."
+  },
+  {
+    "id": "bach-invention-4",
+    "composer": "Johann Sebastian Bach",
+    "composer_ko": "요한 제바스티안 바흐",
+    "title": "Two-Part Invention No.4 in D minor BWV 775",
+    "title_ko": "2성 인벤션 4번 D단조 BWV 775",
+    "aliases": [
+      "인벤션 4번",
+      "바흐 인벤션 4번",
+      "BWV 775"
+    ],
+    "era": "baroque",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Two-Part-Inventions/HN-1591",
+    "techniques": [
+      "다성부(폴리포니)",
+      "빠른 패시지",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "bach-invention-1"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "bach-invention-8",
+    "composer": "Johann Sebastian Bach",
+    "composer_ko": "요한 제바스티안 바흐",
+    "title": "Two-Part Invention No.8 in F major BWV 779",
+    "title_ko": "2성 인벤션 8번 F장조 BWV 779",
+    "aliases": [
+      "인벤션 8번",
+      "바흐 인벤션 8번",
+      "BWV 779"
+    ],
+    "era": "baroque",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Two-Part-Inventions/HN-1591",
+    "techniques": [
+      "다성부(폴리포니)",
+      "빠른 패시지",
+      "도약",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "bach-invention-1",
+      "bach-invention-4"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "mozart-k1e",
+    "composer": "Wolfgang Amadeus Mozart",
+    "composer_ko": "볼프강 아마데우스 모차르트",
+    "title": "Minuet K.1e (Nannerl Music Book)",
+    "title_ko": "미뉴에트 K.1e (난네를 음악수첩)",
+    "aliases": [
+      "모차르트 미뉴에트",
+      "K.1e",
+      "난네를 노트"
+    ],
+    "era": "classical",
+    "level": 1,
+    "level_range": [
+      1,
+      1
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-15-well-known-original-pieces/HN-1812",
+    "techniques": [
+      "양손 독립",
+      "레가토"
+    ],
+    "prerequisites": [],
+    "notes": "어린 모차르트의 초기 미뉴에트."
+  },
+  {
+    "id": "clementi-op36-1",
+    "composer": "Muzio Clementi",
+    "composer_ko": "무치오 클레멘티",
+    "title": "Sonatina in C major Op.36 No.1",
+    "title_ko": "소나티네 C장조 Op.36 No.1",
+    "aliases": [
+      "클레멘티 소나티네 1번",
+      "Op.36 No.1",
+      "클레멘티 1번"
+    ],
+    "era": "classical",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Six-Piano-Sonatinas-op.-36/HN-848",
+    "techniques": [
+      "스케일",
+      "알베르티 베이스",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "bach-anh114",
+      "mozart-k1e"
+    ],
+    "notes": "소나티네 입문의 대표곡. 개정판(op.36,(1))도 Henle 3."
+  },
+  {
+    "id": "clementi-op36-2",
+    "composer": "Muzio Clementi",
+    "composer_ko": "무치오 클레멘티",
+    "title": "Sonatina in G major Op.36 No.2",
+    "title_ko": "소나티네 G장조 Op.36 No.2",
+    "aliases": [
+      "클레멘티 소나티네 2번",
+      "Op.36 No.2"
+    ],
+    "era": "classical",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Six-Piano-Sonatinas-op.-36/HN-848",
+    "techniques": [
+      "스케일",
+      "알베르티 베이스",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "clementi-op36-1"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "clementi-op36-3",
+    "composer": "Muzio Clementi",
+    "composer_ko": "무치오 클레멘티",
+    "title": "Sonatina in C major Op.36 No.3",
+    "title_ko": "소나티네 C장조 Op.36 No.3",
+    "aliases": [
+      "클레멘티 소나티네 3번",
+      "Op.36 No.3"
+    ],
+    "era": "classical",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Six-Piano-Sonatinas-op.-36/HN-848",
+    "techniques": [
+      "스케일",
+      "빠른 패시지",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "clementi-op36-1",
+      "clementi-op36-2"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "clementi-op36-4",
+    "composer": "Muzio Clementi",
+    "composer_ko": "무치오 클레멘티",
+    "title": "Sonatina in F major Op.36 No.4",
+    "title_ko": "소나티네 F장조 Op.36 No.4",
+    "aliases": [
+      "클레멘티 소나티네 4번",
+      "Op.36 No.4"
+    ],
+    "era": "classical",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Six-Piano-Sonatinas-op.-36/HN-848",
+    "techniques": [
+      "스케일",
+      "트릴/장식음",
+      "빠른 패시지"
+    ],
+    "prerequisites": [
+      "clementi-op36-3"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "clementi-op36-5",
+    "composer": "Muzio Clementi",
+    "composer_ko": "무치오 클레멘티",
+    "title": "Sonatina in G major Op.36 No.5",
+    "title_ko": "소나티네 G장조 Op.36 No.5",
+    "aliases": [
+      "클레멘티 소나티네 5번",
+      "Op.36 No.5"
+    ],
+    "era": "classical",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Six-Piano-Sonatinas-op.-36/HN-848",
+    "techniques": [
+      "스케일",
+      "알베르티 베이스",
+      "빠른 패시지"
+    ],
+    "prerequisites": [
+      "clementi-op36-3"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "clementi-op36-6",
+    "composer": "Muzio Clementi",
+    "composer_ko": "무치오 클레멘티",
+    "title": "Sonatina in D major Op.36 No.6",
+    "title_ko": "소나티네 D장조 Op.36 No.6",
+    "aliases": [
+      "클레멘티 소나티네 6번",
+      "Op.36 No.6"
+    ],
+    "era": "classical",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Six-Piano-Sonatinas-op.-36/HN-848",
+    "techniques": [
+      "스케일",
+      "빠른 패시지",
+      "옥타브"
+    ],
+    "prerequisites": [
+      "clementi-op36-4",
+      "clementi-op36-5"
+    ],
+    "notes": "Op.36 중 가장 규모가 큰 곡."
+  },
+  {
+    "id": "kuhlau-op60-2",
+    "composer": "Friedrich Kuhlau",
+    "composer_ko": "프리드리히 쿨라우",
+    "title": "Sonatina in A major Op.60 No.2",
+    "title_ko": "소나티네 A장조 Op.60 No.2",
+    "aliases": [
+      "쿨라우 소나티네",
+      "쿨라우 Op.60 No.2"
+    ],
+    "era": "classical",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Sonatinas-for-Piano-Volume-II-Classical/HN-340",
+    "techniques": [
+      "스케일",
+      "빠른 패시지",
+      "알베르티 베이스"
+    ],
+    "prerequisites": [
+      "clementi-op36-6"
+    ],
+    "notes": "Henle 소나티네 선집 2권 수록. 쿨라우 Op.20/Op.55는 Henle 레벨 미확인으로 제외."
+  },
+  {
+    "id": "haydn-hob16-35",
+    "composer": "Joseph Haydn",
+    "composer_ko": "요제프 하이든",
+    "title": "Piano Sonata in C major Hob. XVI:35",
+    "title_ko": "피아노 소나타 C장조 Hob. XVI:35",
+    "aliases": [
+      "하이든 소나타 C장조",
+      "Hob.XVI:35",
+      "하이든 소나타 48번"
+    ],
+    "era": "classical",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Piano-Sonata-C-major-Hob.-XVI-35/HN-1576",
+    "techniques": [
+      "알베르티 베이스",
+      "빠른 패시지",
+      "스케일"
+    ],
+    "prerequisites": [
+      "clementi-op36-6"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "mozart-k545",
+    "composer": "Wolfgang Amadeus Mozart",
+    "composer_ko": "볼프강 아마데우스 모차르트",
+    "title": "Piano Sonata in C major K.545 (Sonata facile)",
+    "title_ko": "피아노 소나타 C장조 K.545 (소나타 파칠레)",
+    "aliases": [
+      "모차르트 K.545",
+      "소나타 파칠레",
+      "모차르트 소나타 16번",
+      "K545",
+      "쉬운 소나타"
+    ],
+    "era": "classical",
+    "level": 5,
+    "level_range": [
+      4,
+      5
+    ],
+    "movements": [
+      {
+        "name": "1. Allegro",
+        "level": 4
+      },
+      {
+        "name": "3. Rondo (Allegretto)",
+        "level": 4
+      }
+    ],
+    "level_source": "https://www.henle.de/Piano-Sonata-C-major-K.-545-Sonata-facile/HN-164",
+    "techniques": [
+      "스케일",
+      "알베르티 베이스",
+      "빠른 패시지",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "clementi-op36-3",
+      "clementi-op36-4"
+    ],
+    "notes": "전곡 5, 악장별(1·3악장 각 4)은 https://www.henle.de/At-the-Piano-15-well-known-original-pieces/HN-1812 기준. 2악장 단독 레벨은 미공개."
+  },
+  {
+    "id": "mozart-k283",
+    "composer": "Wolfgang Amadeus Mozart",
+    "composer_ko": "볼프강 아마데우스 모차르트",
+    "title": "Piano Sonata in G major K.283",
+    "title_ko": "피아노 소나타 G장조 K.283",
+    "aliases": [
+      "모차르트 K.283",
+      "모차르트 소나타 5번",
+      "K283"
+    ],
+    "era": "classical",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [
+      {
+        "name": "1. Allegro",
+        "level": 5
+      }
+    ],
+    "level_source": "https://www.henle.de/Levels-of-Difficulty/",
+    "techniques": [
+      "스케일",
+      "트릴/장식음",
+      "빠른 패시지"
+    ],
+    "prerequisites": [
+      "mozart-k545"
+    ],
+    "notes": "Henle 난이도 안내 페이지의 레벨 5 대표곡. 1악장 5는 HN 1812 기준."
+  },
+  {
+    "id": "mozart-k265",
+    "composer": "Wolfgang Amadeus Mozart",
+    "composer_ko": "볼프강 아마데우스 모차르트",
+    "title": "12 Variations on \"Ah, vous dirai-je, Maman\" K.265",
+    "title_ko": "\"아, 어머니께 말씀드리죠\" 주제에 의한 12개의 변주곡 K.265 (작은 별 변주곡)",
+    "aliases": [
+      "작은 별 변주곡",
+      "반짝반짝 작은별 변주곡",
+      "K.265",
+      "Twinkle Twinkle 변주곡"
+    ],
+    "era": "classical",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-15-well-known-original-pieces/HN-1812",
+    "techniques": [
+      "스케일",
+      "빠른 패시지",
+      "트릴/장식음",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "mozart-k545"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "mozart-k331",
+    "composer": "Wolfgang Amadeus Mozart",
+    "composer_ko": "볼프강 아마데우스 모차르트",
+    "title": "Piano Sonata in A major K.331 (Alla Turca)",
+    "title_ko": "피아노 소나타 A장조 K.331 (터키 행진곡)",
+    "aliases": [
+      "모차르트 K.331",
+      "터키 행진곡",
+      "알라 투르카",
+      "Alla Turca",
+      "모차르트 소나타 11번"
+    ],
+    "era": "classical",
+    "level": 6,
+    "level_range": [
+      5,
+      6
+    ],
+    "movements": [
+      {
+        "name": "2. Menuetto",
+        "level": 5
+      }
+    ],
+    "level_source": "https://www.henle.de/en/Piano-Sonata-A-major-K.-331-Alla-Turca/HN-1300",
+    "techniques": [
+      "옥타브",
+      "트릴/장식음",
+      "빠른 패시지",
+      "화음"
+    ],
+    "prerequisites": [
+      "mozart-k545",
+      "mozart-k283"
+    ],
+    "notes": "전곡 6. 2악장 Menuetto 5는 https://www.henle.de/At-the-Piano-15-well-known-original-pieces/HN-1812 기준. 3악장(터키 행진곡) 단독 레벨은 미공개."
+  },
+  {
+    "id": "mozart-k397",
+    "composer": "Wolfgang Amadeus Mozart",
+    "composer_ko": "볼프강 아마데우스 모차르트",
+    "title": "Fantasy in D minor K.397",
+    "title_ko": "환상곡 D단조 K.397",
+    "aliases": [
+      "모차르트 환상곡 D단조",
+      "K.397",
+      "모차르트 판타지"
+    ],
+    "era": "classical",
+    "level": 6,
+    "level_range": [
+      6,
+      6
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-15-well-known-original-pieces/HN-1812",
+    "techniques": [
+      "아르페지오",
+      "빠른 패시지",
+      "루바토",
+      "페달"
+    ],
+    "prerequisites": [
+      "mozart-k545"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "beethoven-woo59",
+    "composer": "Ludwig van Beethoven",
+    "composer_ko": "루트비히 판 베토벤",
+    "title": "Bagatelle in A minor WoO 59 \"Für Elise\"",
+    "title_ko": "바가텔 A단조 WoO 59 \"엘리제를 위하여\"",
+    "aliases": [
+      "엘리제를 위하여",
+      "Für Elise",
+      "Fur Elise",
+      "WoO 59",
+      "베토벤 엘리제"
+    ],
+    "era": "classical",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://henle.de/Bagatelle-in-a-minor-WoO-59-Fuer-Elise/HN-1347",
+    "techniques": [
+      "아르페지오",
+      "페달",
+      "빠른 패시지",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "clementi-op36-1"
+    ],
+    "notes": "유명 첫 부분보다 중간부(B·C부)가 더 까다로움."
+  },
+  {
+    "id": "beethoven-op49-1",
+    "composer": "Ludwig van Beethoven",
+    "composer_ko": "루트비히 판 베토벤",
+    "title": "Piano Sonata in G minor Op.49 No.1",
+    "title_ko": "피아노 소나타 G단조 Op.49 No.1 (소나타 19번)",
+    "aliases": [
+      "베토벤 소나타 19번",
+      "Op.49 No.1",
+      "베토벤 쉬운 소나타"
+    ],
+    "era": "classical",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Five-Easy-Piano-Sonatas/HN-1391",
+    "techniques": [
+      "스케일",
+      "아르페지오",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "clementi-op36-3"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "beethoven-op49-2",
+    "composer": "Ludwig van Beethoven",
+    "composer_ko": "루트비히 판 베토벤",
+    "title": "Piano Sonata in G major Op.49 No.2",
+    "title_ko": "피아노 소나타 G장조 Op.49 No.2 (소나타 20번)",
+    "aliases": [
+      "베토벤 소나타 20번",
+      "Op.49 No.2",
+      "베토벤 쉬운 소나타"
+    ],
+    "era": "classical",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Five-Easy-Piano-Sonatas/HN-1391",
+    "techniques": [
+      "스케일",
+      "알베르티 베이스",
+      "빠른 패시지"
+    ],
+    "prerequisites": [
+      "clementi-op36-3"
+    ],
+    "notes": "Henle 난이도 안내 페이지의 레벨 3 대표곡."
+  },
+  {
+    "id": "beethoven-op27-2",
+    "composer": "Ludwig van Beethoven",
+    "composer_ko": "루트비히 판 베토벤",
+    "title": "Piano Sonata No.14 in C-sharp minor Op.27 No.2 \"Moonlight\"",
+    "title_ko": "피아노 소나타 14번 C#단조 Op.27 No.2 \"월광\"",
+    "aliases": [
+      "월광 소나타",
+      "월광",
+      "Moonlight Sonata",
+      "Op.27 No.2",
+      "베토벤 소나타 14번",
+      "월광 1악장",
+      "월광 3악장"
+    ],
+    "era": "classical",
+    "level": 7,
+    "level_range": [
+      4,
+      7
+    ],
+    "movements": [
+      {
+        "name": "1. Adagio sostenuto",
+        "level": 4
+      }
+    ],
+    "level_source": "https://www.henle.de/en/Piano-Sonata-no.-14-c-sharp-minor-op.-27-no.-2-Moonlight/HN-1062",
+    "techniques": [
+      "아르페지오",
+      "페달",
+      "빠른 패시지",
+      "옥타브",
+      "레가토"
+    ],
+    "prerequisites": [
+      "beethoven-op49-2",
+      "mozart-k545"
+    ],
+    "notes": "전곡 7(어려움). 1악장 단독 4는 https://www.henle.de/At-the-Piano-9-well-known-original-pieces/HN-1820 기준. 2·3악장 단독 레벨은 Henle 미공개(3악장은 전곡 레벨 7의 주된 원인)."
+  },
+  {
+    "id": "beethoven-op13",
+    "composer": "Ludwig van Beethoven",
+    "composer_ko": "루트비히 판 베토벤",
+    "title": "Piano Sonata No.8 in C minor Op.13 \"Pathétique\"",
+    "title_ko": "피아노 소나타 8번 C단조 Op.13 \"비창\"",
+    "aliases": [
+      "비창 소나타",
+      "비창",
+      "Pathetique",
+      "Op.13",
+      "베토벤 소나타 8번"
+    ],
+    "era": "classical",
+    "level": 7,
+    "level_range": [
+      7,
+      7
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Five-Famous-Piano-Sonatas/HN-1392",
+    "techniques": [
+      "옥타브",
+      "빠른 패시지",
+      "화음"
+    ],
+    "prerequisites": [
+      "beethoven-op49-2",
+      "mozart-k331"
+    ],
+    "notes": "악장별 레벨은 Henle 미공개."
+  },
+  {
+    "id": "schumann-op68-1",
+    "composer": "Robert Schumann",
+    "composer_ko": "로베르트 슈만",
+    "title": "Melodie, Album für die Jugend Op.68 No.1",
+    "title_ko": "어린이를 위한 앨범 Op.68-1 \"멜로디\"",
+    "aliases": [
+      "슈만 멜로디",
+      "어린이를 위한 앨범 1번",
+      "Album für die Jugend No.1",
+      "청소년을 위한 앨범 1번"
+    ],
+    "era": "romantic",
+    "level": 2,
+    "level_range": [
+      2,
+      2
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Album-for-the-Young-op.-68/HN-45",
+    "techniques": [
+      "레가토",
+      "양손 독립"
+    ],
+    "prerequisites": [],
+    "notes": "Henle 난이도 안내 페이지의 레벨 2 대표곡(Op.68 1·2·3·5번)."
+  },
+  {
+    "id": "schumann-op68-2",
+    "composer": "Robert Schumann",
+    "composer_ko": "로베르트 슈만",
+    "title": "Soldatenmarsch, Album für die Jugend Op.68 No.2",
+    "title_ko": "어린이를 위한 앨범 Op.68-2 \"병정 행진곡\"",
+    "aliases": [
+      "병정 행진곡",
+      "군인 행진곡",
+      "어린이를 위한 앨범 2번"
+    ],
+    "era": "romantic",
+    "level": 2,
+    "level_range": [
+      2,
+      2
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Album-for-the-Young-op.-68/HN-45",
+    "techniques": [
+      "화음",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "schumann-op68-1"
+    ],
+    "notes": "스타카토 화음과 부점 리듬."
+  },
+  {
+    "id": "schumann-op68-8",
+    "composer": "Robert Schumann",
+    "composer_ko": "로베르트 슈만",
+    "title": "Wilder Reiter, Album für die Jugend Op.68 No.8",
+    "title_ko": "어린이를 위한 앨범 Op.68-8 \"용감한 기수\"",
+    "aliases": [
+      "용감한 기수",
+      "거친 기사",
+      "Wild Rider",
+      "어린이를 위한 앨범 8번"
+    ],
+    "era": "romantic",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Album-for-the-Young-op.-68/HN-45",
+    "techniques": [
+      "화음",
+      "양손 독립",
+      "도약"
+    ],
+    "prerequisites": [
+      "schumann-op68-2"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "schumann-op68-10",
+    "composer": "Robert Schumann",
+    "composer_ko": "로베르트 슈만",
+    "title": "Fröhlicher Landmann, Album für die Jugend Op.68 No.10",
+    "title_ko": "어린이를 위한 앨범 Op.68-10 \"즐거운 농부\"",
+    "aliases": [
+      "즐거운 농부",
+      "The Happy Farmer",
+      "어린이를 위한 앨범 10번"
+    ],
+    "era": "romantic",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Album-for-the-Young-op.-68/HN-45",
+    "techniques": [
+      "레가토",
+      "양손 독립",
+      "화음"
+    ],
+    "prerequisites": [
+      "schumann-op68-1"
+    ],
+    "notes": "왼손 멜로디 연습에 좋음."
+  },
+  {
+    "id": "schumann-op68-16",
+    "composer": "Robert Schumann",
+    "composer_ko": "로베르트 슈만",
+    "title": "Erster Verlust, Album für die Jugend Op.68 No.16",
+    "title_ko": "어린이를 위한 앨범 Op.68-16 \"첫 번째 상실\"",
+    "aliases": [
+      "첫 번째 상실",
+      "First Loss",
+      "어린이를 위한 앨범 16번"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Album-for-the-Young-op.-68/HN-45",
+    "techniques": [
+      "레가토",
+      "다성부(폴리포니)",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "schumann-op68-10"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "schumann-op15-1",
+    "composer": "Robert Schumann",
+    "composer_ko": "로베르트 슈만",
+    "title": "Von fremden Ländern und Menschen, Kinderszenen Op.15 No.1",
+    "title_ko": "어린이 정경 Op.15-1 \"미지의 나라와 사람들\"",
+    "aliases": [
+      "미지의 나라와 사람들",
+      "어린이 정경 1번",
+      "Of Foreign Lands and Peoples"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Scenes-from-Childhood-op.-15-and-Album-for-the-Young-op.-68/HN-46",
+    "techniques": [
+      "레가토",
+      "다성부(폴리포니)",
+      "페달"
+    ],
+    "prerequisites": [
+      "schumann-op68-16"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "schumann-op15-7",
+    "composer": "Robert Schumann",
+    "composer_ko": "로베르트 슈만",
+    "title": "Träumerei, Kinderszenen Op.15 No.7",
+    "title_ko": "어린이 정경 Op.15-7 \"트로이메라이(꿈)\"",
+    "aliases": [
+      "트로이메라이",
+      "Träumerei",
+      "Traumerei",
+      "꿈",
+      "어린이 정경 7번"
+    ],
+    "era": "romantic",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Scenes-from-Childhood-op.-15-and-Album-for-the-Young-op.-68/HN-46",
+    "techniques": [
+      "다성부(폴리포니)",
+      "페달",
+      "루바토",
+      "레가토"
+    ],
+    "prerequisites": [
+      "schumann-op15-1",
+      "schumann-op68-16"
+    ],
+    "notes": "음표는 적지만 성부 처리와 음색 조절이 핵심."
+  },
+  {
+    "id": "chopin-kk4b-11",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Waltz in A minor KK IVb/11 (B.150)",
+    "title_ko": "왈츠 A단조 KK IVb/11 (유작)",
+    "aliases": [
+      "쇼팽 왈츠 A단조 유작",
+      "쇼팽 왈츠 19번",
+      "B.150"
+    ],
+    "era": "romantic",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-17-well-known-original-pieces/HN-1822",
+    "techniques": [
+      "도약",
+      "페달",
+      "화음"
+    ],
+    "prerequisites": [
+      "beethoven-woo59"
+    ],
+    "notes": "쇼팽 입문 첫 곡으로 자주 추천됨."
+  },
+  {
+    "id": "chopin-op28-4",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Prelude in E minor Op.28 No.4",
+    "title_ko": "전주곡 E단조 Op.28 No.4",
+    "aliases": [
+      "쇼팽 전주곡 4번",
+      "쇼팽 프렐류드 4번",
+      "Op.28 No.4"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Preludes/HN-882",
+    "techniques": [
+      "화음",
+      "페달",
+      "레가토",
+      "루바토"
+    ],
+    "prerequisites": [
+      "chopin-kk4b-11"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "chopin-op28-7",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Prelude in A major Op.28 No.7",
+    "title_ko": "전주곡 A장조 Op.28 No.7",
+    "aliases": [
+      "쇼팽 전주곡 7번",
+      "쇼팽 프렐류드 7번",
+      "Op.28 No.7"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Preludes/HN-882",
+    "techniques": [
+      "화음",
+      "페달",
+      "도약"
+    ],
+    "prerequisites": [
+      "chopin-kk4b-11"
+    ],
+    "notes": "16마디의 짧은 곡이지만 넓은 화음 펼침이 있음."
+  },
+  {
+    "id": "chopin-op28-20",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Prelude in C minor Op.28 No.20",
+    "title_ko": "전주곡 C단조 Op.28 No.20",
+    "aliases": [
+      "쇼팽 전주곡 20번",
+      "쇼팽 프렐류드 20번",
+      "Op.28 No.20"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Preludes/HN-882",
+    "techniques": [
+      "화음",
+      "옥타브",
+      "페달"
+    ],
+    "prerequisites": [
+      "chopin-op28-4"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "chopin-op28-15",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Prelude in D-flat major Op.28 No.15 \"Raindrop\"",
+    "title_ko": "전주곡 Db장조 Op.28 No.15 \"빗방울\"",
+    "aliases": [
+      "빗방울 전주곡",
+      "Raindrop",
+      "쇼팽 전주곡 15번",
+      "Op.28 No.15"
+    ],
+    "era": "romantic",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Preludes/HN-882",
+    "techniques": [
+      "레가토",
+      "페달",
+      "화음",
+      "루바토"
+    ],
+    "prerequisites": [
+      "chopin-op28-4",
+      "chopin-op28-7"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "chopin-op69-2",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Waltz in B minor Op.69 No.2",
+    "title_ko": "왈츠 B단조 Op.69 No.2 (유작)",
+    "aliases": [
+      "쇼팽 왈츠 B단조",
+      "쇼팽 왈츠 10번",
+      "Op.69 No.2"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-17-well-known-original-pieces/HN-1822",
+    "techniques": [
+      "도약",
+      "트릴/장식음",
+      "루바토",
+      "페달"
+    ],
+    "prerequisites": [
+      "chopin-kk4b-11"
+    ],
+    "notes": "Op.69 No.1(이별의 왈츠)은 Henle 레벨 미확인으로 제외."
+  },
+  {
+    "id": "chopin-op68-2",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Mazurka in A minor Op.68 No.2",
+    "title_ko": "마주르카 A단조 Op.68 No.2 (유작)",
+    "aliases": [
+      "쇼팽 마주르카 A단조",
+      "쇼팽 마주르카 Op.68-2",
+      "쇼팽 쉬운 마주르카"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-17-well-known-original-pieces/HN-1822",
+    "techniques": [
+      "루바토",
+      "트릴/장식음",
+      "페달"
+    ],
+    "prerequisites": [
+      "chopin-kk4b-11"
+    ],
+    "notes": "마주르카 리듬 입문용."
+  },
+  {
+    "id": "chopin-kk4a-16",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Nocturne in C-sharp minor KK IVa/16 (Lento con gran espressione)",
+    "title_ko": "녹턴 C#단조 KK IVa/16 (유작, 렌토 콘 그란 에스프레시오네)",
+    "aliases": [
+      "쇼팽 녹턴 20번",
+      "쇼팽 녹턴 유작",
+      "피아니스트 녹턴",
+      "Lento con gran espressione"
+    ],
+    "era": "romantic",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-17-well-known-original-pieces/HN-1822",
+    "techniques": [
+      "루바토",
+      "빠른 패시지",
+      "페달",
+      "트릴/장식음"
+    ],
+    "prerequisites": [
+      "chopin-op69-2",
+      "chopin-op28-4"
+    ],
+    "notes": "Henle 표기는 version 1 기준."
+  },
+  {
+    "id": "chopin-op64-2",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Waltz in C-sharp minor Op.64 No.2",
+    "title_ko": "왈츠 C#단조 Op.64 No.2",
+    "aliases": [
+      "쇼팽 왈츠 7번",
+      "Op.64 No.2",
+      "쇼팽 왈츠 C#단조"
+    ],
+    "era": "romantic",
+    "level": 6,
+    "level_range": [
+      6,
+      6
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-17-well-known-original-pieces/HN-1822",
+    "techniques": [
+      "빠른 패시지",
+      "도약",
+      "루바토",
+      "페달"
+    ],
+    "prerequisites": [
+      "chopin-op69-2"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "chopin-op9-2",
+    "composer": "Frédéric Chopin",
+    "composer_ko": "프레데리크 쇼팽",
+    "title": "Nocturne in E-flat major Op.9 No.2",
+    "title_ko": "녹턴 Eb장조 Op.9 No.2",
+    "aliases": [
+      "쇼팽 녹턴 2번",
+      "쇼팽 야상곡",
+      "Op.9 No.2",
+      "녹턴 Op.9-2"
+    ],
+    "era": "romantic",
+    "level": 6,
+    "level_range": [
+      6,
+      6
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-17-well-known-original-pieces/HN-1822",
+    "techniques": [
+      "루바토",
+      "트릴/장식음",
+      "도약",
+      "페달"
+    ],
+    "prerequisites": [
+      "chopin-op69-2",
+      "chopin-kk4a-16"
+    ],
+    "notes": "후반 카덴차와 장식음이 난관."
+  },
+  {
+    "id": "mendelssohn-op19-6",
+    "composer": "Felix Mendelssohn Bartholdy",
+    "composer_ko": "펠릭스 멘델스존",
+    "title": "Song without Words Op.19 No.6 \"Venetian Gondola Song\" (G minor)",
+    "title_ko": "무언가 Op.19 No.6 \"베네치아의 뱃노래\" G단조",
+    "aliases": [
+      "베네치아의 뱃노래",
+      "곤돌라의 노래",
+      "무언가 Op.19-6",
+      "멘델스존 무언가"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/At-the-Piano-13-well-known-original-pieces/HN-1813",
+    "techniques": [
+      "레가토",
+      "페달",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "schumann-op68-16"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "grieg-op12-1",
+    "composer": "Edvard Grieg",
+    "composer_ko": "에드바르 그리그",
+    "title": "Arietta, Lyric Pieces Op.12 No.1",
+    "title_ko": "서정 소곡집 Op.12-1 \"아리에타\"",
+    "aliases": [
+      "아리에타",
+      "Arietta",
+      "서정 소곡집 1번",
+      "그리그 서정소품"
+    ],
+    "era": "romantic",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/At-the-Piano-15-well-known-original-pieces/HN-1823",
+    "techniques": [
+      "다성부(폴리포니)",
+      "페달",
+      "레가토"
+    ],
+    "prerequisites": [
+      "grieg-op12-2"
+    ],
+    "notes": "한 손 안에서 멜로디와 반주를 동시에 처리."
+  },
+  {
+    "id": "grieg-op12-2",
+    "composer": "Edvard Grieg",
+    "composer_ko": "에드바르 그리그",
+    "title": "Waltz, Lyric Pieces Op.12 No.2",
+    "title_ko": "서정 소곡집 Op.12-2 \"왈츠\"",
+    "aliases": [
+      "그리그 왈츠",
+      "서정 소곡집 2번"
+    ],
+    "era": "romantic",
+    "level": 3,
+    "level_range": [
+      3,
+      3
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/At-the-Piano-15-well-known-original-pieces/HN-1823",
+    "techniques": [
+      "화음",
+      "도약",
+      "양손 독립"
+    ],
+    "prerequisites": [
+      "schumann-op68-8"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "debussy-little-shepherd",
+    "composer": "Claude Debussy",
+    "composer_ko": "클로드 드뷔시",
+    "title": "The Little Shepherd (Children's Corner No.5)",
+    "title_ko": "어린 양치기 (어린이 차지 5번)",
+    "aliases": [
+      "어린 양치기",
+      "The Little Shepherd",
+      "어린이 차지 5번",
+      "Children's Corner"
+    ],
+    "era": "impressionist",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-9-well-known-original-pieces/HN-1815",
+    "techniques": [
+      "루바토",
+      "페달",
+      "화음"
+    ],
+    "prerequisites": [
+      "satie-gymnopedie-1"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "debussy-arabesque-1",
+    "composer": "Claude Debussy",
+    "composer_ko": "클로드 드뷔시",
+    "title": "Arabesque No.1",
+    "title_ko": "아라베스크 1번",
+    "aliases": [
+      "아라베스크 1번",
+      "Arabesque No.1",
+      "드뷔시 아라베스크"
+    ],
+    "era": "impressionist",
+    "level": 4,
+    "level_range": [
+      4,
+      4
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/At-the-Piano-9-well-known-original-pieces/HN-1815",
+    "techniques": [
+      "아르페지오",
+      "양손 독립",
+      "페달",
+      "레가토"
+    ],
+    "prerequisites": [
+      "satie-gymnopedie-1"
+    ],
+    "notes": "셋잇단음표 대 2분할 리듬(2대3)."
+  },
+  {
+    "id": "debussy-clair-de-lune",
+    "composer": "Claude Debussy",
+    "composer_ko": "클로드 드뷔시",
+    "title": "Clair de lune (Suite bergamasque No.3)",
+    "title_ko": "달빛 (베르가마스크 모음곡 3번)",
+    "aliases": [
+      "달빛",
+      "클레어 드 룬",
+      "Clair de lune",
+      "베르가마스크 모음곡",
+      "드뷔시 달빛"
+    ],
+    "era": "impressionist",
+    "level": 5,
+    "level_range": [
+      5,
+      5
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/Clair-de-lune/HN-391",
+    "techniques": [
+      "아르페지오",
+      "페달",
+      "루바토",
+      "화음"
+    ],
+    "prerequisites": [
+      "debussy-arabesque-1",
+      "chopin-op28-4"
+    ],
+    "notes": "중간부 아르페지오 구간에서 페달·음량 조절이 핵심."
+  },
+  {
+    "id": "satie-gymnopedie-1",
+    "composer": "Erik Satie",
+    "composer_ko": "에릭 사티",
+    "title": "Gymnopédie No.1",
+    "title_ko": "짐노페디 1번",
+    "aliases": [
+      "짐노페디",
+      "짐노페디 1번",
+      "Gymnopedie",
+      "사티 짐노페디"
+    ],
+    "era": "modern",
+    "level": 2,
+    "level_range": [
+      2,
+      2
+    ],
+    "movements": [],
+    "level_source": "https://www.henle.de/en/Gymnopedies/HN-1072",
+    "techniques": [
+      "도약",
+      "페달",
+      "화음"
+    ],
+    "prerequisites": [],
+    "notes": "짐노페디 2·3번도 Henle 2."
+  }
+]
