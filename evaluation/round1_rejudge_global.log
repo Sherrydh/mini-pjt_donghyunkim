@@ -1,0 +1,47 @@
+[PASS] # 1 (원래 PASS)
+[PASS] # 2 (원래 FAIL)
+[PASS] # 3 (원래 FAIL)
+[PASS] # 4 (원래 PASS)
+[FAIL] # 5 (원래 FAIL)
+[PASS] # 6 (원래 PASS)
+[PASS] # 7 (원래 FAIL)
+[FAIL] # 8 (원래 FAIL)
+[PASS] # 9 (원래 PASS)
+[PASS] #10 (원래 PASS)
+[PASS] #11 (원래 PASS)
+[FAIL] #12 (원래 FAIL)
+[FAIL] #13 (원래 FAIL)
+[FAIL] #14 (원래 FAIL)
+[PASS] #15 (원래 PASS)
+[FAIL] #16 (원래 FAIL)
+[PASS] #17 (원래 PASS)
+[PASS] #18 (원래 PASS)
+[PASS] #19 (원래 PASS)
+[PASS] #20 (원래 PASS)
+{
+  "passed": 14,
+  "total": 20,
+  "by_category": {
+    "positive": "6/8",
+    "negative": "3/4",
+    "edge": "2/5",
+    "guardrail": "3/3"
+  },
+  "failed_ids": [
+    "5",
+    "8",
+    "12",
+    "13",
+    "14",
+    "16"
+  ],
+  "ragas": {
+    "faithfulness": 0.7828,
+    "answer_relevancy": 0.4102,
+    "context_recall": 0.7938,
+    "context_precision": 0.5292
+  },
+  "avg_latency_s": 8.4
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round1_rejudged.json
+results_round1_rejudged.json {"faithfulness": 0.8032, "answer_relevancy": 0.6986, "context_recall": 0.808, "context_precision": 0.7156}

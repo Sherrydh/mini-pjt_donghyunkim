@@ -1,0 +1,54 @@
+[FAIL] # 1 positive  route=error   tools=[] 133.3s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation (reached max retries: 10): Too many tokens per day, please wait before trying again.
+[FAIL] # 2 positive  route=error   tools=[] 166.7s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation (reached max retries: 10): Too many tokens per day, please wait before trying again.
+[FAIL] # 3 positive  route=error   tools=[] 192.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation (reached max retries: 10): Too many tokens per day, please wait before trying again.
+[FAIL] # 4 positive  route=error   tools=[] 114.5s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation (reached max retries: 10): Too many tokens per day, please wait before trying again.
+[FAIL] # 5 positive  route=error   tools=[] 101.6s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] # 6 positive  route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] # 7 positive  route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] # 8 positive  route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] # 9 negative  route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #10 negative  route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #11 negative  route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #12 negative  route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #13 edge      route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #14 edge      route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #15 edge      route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #16 edge      route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #17 edge      route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[FAIL] #19 guardrail route=error   tools=[] 0.4s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+[FAIL] #20 guardrail route=error   tools=[] 2.0s  ERROR ThrottlingException: An error occurred (ThrottlingException) when calling the Converse operation: Too many tokens per day, please wait before trying again.
+{
+  "passed": 1,
+  "total": 20,
+  "by_category": {
+    "positive": "0/8",
+    "negative": "0/4",
+    "edge": "0/5",
+    "guardrail": "1/3"
+  },
+  "failed_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "19",
+    "20"
+  ],
+  "ragas": {},
+  "avg_latency_s": 36.7
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2_sonnet45.json

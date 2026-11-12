@@ -1,0 +1,40 @@
+[PASS] # 1 positive  route=answer  tools=['search_technique'] 16.2s
+[PASS] # 2 positive  route=answer  tools=['search_technique', 'search_technique'] 20.3s
+[PASS] # 3 positive  route=answer  tools=['search_technique'] 11.3s
+[PASS] # 4 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 12.4s
+[PASS] # 5 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge', 'search_music_knowledge', 'search_music_knowledge'] 19.3s
+[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 9.7s
+[PASS] # 7 positive  route=answer  tools=['get_piece', 'find_pieces'] 12.8s
+[PASS] # 8 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge', 'search_technique', 'get_piece'] 16.3s
+[PASS] # 9 negative  route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece', 'search_music_knowledge'] 13.1s
+[PASS] #10 negative  route=refuse  tools=[] 0.9s
+[PASS] #11 negative  route=limited tools=[] 5.1s
+[PASS] #12 negative  route=answer  tools=['search_music_knowledge'] 9.9s
+[PASS] #13 edge      route=answer  tools=['search_technique', 'search_music_knowledge', 'find_pieces'] 23.3s
+[PASS] #14 edge      route=answer  tools=['search_technique', 'find_pieces'] 15.7s
+[PASS] #15 edge      route=answer  tools=['get_piece'] 9.5s
+[PASS] #16 edge      route=answer  tools=['search_technique'] 13.3s
+[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece'] 14.9s
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[PASS] #19 guardrail route=refuse  tools=[] 1.2s
+[PASS] #20 guardrail route=limited tools=['search_technique'] 9.2s
+RAGAS 평가 중 (positive 8건)...
+{
+  "passed": 20,
+  "total": 20,
+  "by_category": {
+    "positive": "8/8",
+    "negative": "4/4",
+    "edge": "5/5",
+    "guardrail": "3/3"
+  },
+  "failed_ids": [],
+  "ragas": {
+    "faithfulness": 0.8294,
+    "answer_relevancy": 0.7686,
+    "context_recall": 0.7961,
+    "context_precision": 0.7526
+  },
+  "avg_latency_s": 11.7
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2_v10_grade.json

@@ -1,23 +1,23 @@
-[PASS] # 1 positive  route=answer  tools=['search_technique'] 18.3s
-[PASS] # 2 positive  route=answer  tools=['search_technique'] 11.6s
-[PASS] # 3 positive  route=answer  tools=['search_technique'] 9.9s
-[PASS] # 4 positive  route=answer  tools=['search_music_knowledge'] 11.3s
-[PASS] # 5 positive  route=answer  tools=['search_music_knowledge'] 11.0s
-[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 8.9s
-[PASS] # 7 positive  route=answer  tools=['get_piece', 'find_pieces'] 9.2s
-[PASS] # 8 positive  route=answer  tools=['get_piece', 'search_technique', 'search_technique'] 12.3s
-[PASS] # 9 negative  route=answer  tools=['get_piece', 'search_technique'] 6.9s
-[PASS] #10 negative  route=refuse  tools=[] 1.0s
-[PASS] #11 negative  route=limited tools=[] 5.5s
-[PASS] #12 negative  route=answer  tools=['search_music_knowledge'] 8.5s
-[PASS] #13 edge      route=answer  tools=['search_technique', 'find_pieces'] 12.1s
-[PASS] #14 edge      route=answer  tools=['search_technique', 'find_pieces'] 11.8s
-[PASS] #15 edge      route=answer  tools=['get_piece'] 7.8s
-[PASS] #16 edge      route=answer  tools=['search_technique'] 10.7s
-[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'get_piece', 'search_technique'] 15.2s
+[PASS] # 1 positive  route=answer  tools=['search_technique', 'search_technique'] 18.5s
+[PASS] # 2 positive  route=answer  tools=['search_technique', 'search_technique', 'search_technique'] 16.2s
+[PASS] # 3 positive  route=answer  tools=['search_technique', 'search_technique', 'search_technique'] 12.9s
+[PASS] # 4 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge', 'search_music_knowledge'] 13.4s
+[PASS] # 5 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge', 'search_music_knowledge'] 18.9s
+[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 9.7s
+[PASS] # 7 positive  route=answer  tools=['search_music_knowledge', 'get_piece', 'find_pieces'] 14.8s
+[PASS] # 8 positive  route=answer  tools=['search_music_knowledge', 'search_technique', 'search_technique', 'get_piece'] 19.6s
+[PASS] # 9 negative  route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece'] 11.0s
+[PASS] #10 negative  route=refuse  tools=[] 1.1s
+[PASS] #11 negative  route=limited tools=[] 5.9s
+[PASS] #12 negative  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 10.7s
+[PASS] #13 edge      route=answer  tools=['search_technique', 'search_music_knowledge', 'find_pieces'] 22.9s
+[PASS] #14 edge      route=answer  tools=['search_technique', 'search_music_knowledge', 'find_pieces'] 23.5s
+[PASS] #15 edge      route=answer  tools=['search_music_knowledge', 'get_piece'] 12.1s
+[PASS] #16 edge      route=answer  tools=['search_technique', 'search_technique', 'search_music_knowledge'] 18.0s
+[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece'] 18.8s
 [PASS] #18 guardrail route=refuse  tools=[] 0.0s
 [PASS] #19 guardrail route=refuse  tools=[] 1.2s
-[PASS] #20 guardrail route=limited tools=[] 3.9s
+[PASS] #20 guardrail route=limited tools=[] 4.2s
 RAGAS 평가 중 (positive 8건)...
 {
   "passed": 20,
@@ -30,11 +30,11 @@ RAGAS 평가 중 (positive 8건)...
   },
   "failed_ids": [],
   "ragas": {
-    "faithfulness": 0.8222,
-    "answer_relevancy": 0.4132,
-    "context_recall": 0.7515,
-    "context_precision": 0.7083
+    "faithfulness": 0.9346,
+    "answer_relevancy": 0.7637,
+    "context_recall": 0.8771,
+    "context_precision": 0.8236
   },
-  "avg_latency_s": 8.9
+  "avg_latency_s": 12.7
 }
 saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2.json

@@ -1,0 +1,42 @@
+[PASS] # 1 positive  route=answer  tools=['search_technique'] 15.0s
+[PASS] # 2 positive  route=answer  tools=['search_technique'] 12.4s
+[PASS] # 3 positive  route=answer  tools=['search_technique'] 10.6s
+[PASS] # 4 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 15.1s
+[PASS] # 5 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge', 'search_music_knowledge'] 15.3s
+[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 9.4s
+[PASS] # 7 positive  route=answer  tools=['search_technique', 'get_piece', 'find_pieces'] 15.5s
+[PASS] # 8 positive  route=answer  tools=['search_technique', 'get_piece'] 11.8s
+[PASS] # 9 negative  route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece'] 11.1s
+[PASS] #10 negative  route=refuse  tools=[] 1.3s
+[PASS] #11 negative  route=limited tools=[] 4.9s
+[PASS] #12 negative  route=answer  tools=['search_music_knowledge'] 11.1s
+[PASS] #13 edge      route=answer  tools=['search_music_knowledge', 'search_technique', 'find_pieces'] 18.5s
+[PASS] #14 edge      route=answer  tools=['search_technique', 'search_music_knowledge', 'find_pieces'] 18.5s
+[PASS] #15 edge      route=answer  tools=['search_music_knowledge', 'get_piece'] 11.5s
+[FAIL] #16 edge      route=answer  tools=['search_technique'] 13.1s
+[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece', 'search_technique'] 21.1s
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[PASS] #19 guardrail route=refuse  tools=[] 1.3s
+[PASS] #20 guardrail route=limited tools=[] 4.1s
+RAGAS 평가 중 (positive 8건)...
+{
+  "passed": 19,
+  "total": 20,
+  "by_category": {
+    "positive": "8/8",
+    "negative": "4/4",
+    "edge": "4/5",
+    "guardrail": "3/3"
+  },
+  "failed_ids": [
+    "16"
+  ],
+  "ragas": {
+    "faithfulness": 0.8015,
+    "answer_relevancy": 0.7308,
+    "context_recall": 0.7098,
+    "context_precision": 0.7943
+  },
+  "avg_latency_s": 11.1
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2_v5_asked.json

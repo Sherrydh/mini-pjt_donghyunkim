@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "피아노 독학 길잡이 · 에이전트 구조",
+    "locale": "ko",
+    "output": ".archify/architecture-piano-agent-20261112-095329/piano-agent.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/Sherrydh/mini-pjt_donghyunkim.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "1e504bf08cfe4ac5b3f8a4272443c3dcdda7f789"
+    }
+  },
+  "components": [
+    { "id": "user", "type": "external", "label": "사용자", "sublabel": "성인 피아노 독학자", "pos": [40, 40], "size": [150, 60] },
+    { "id": "api", "type": "frontend", "label": "FastAPI", "sublabel": "POST /query", "pos": [300, 40], "size": [150, 60],
+      "sources": [{ "path": "src/api.py", "line": 40, "end_line": 42 }] },
+    { "id": "guard", "type": "security", "label": "guard", "sublabel": "규칙 + LLM 분류", "pos": [300, 180], "size": [150, 60],
+      "sources": [{ "path": "src/agent.py", "line": 89, "end_line": 109 }, { "path": "src/guard.py", "line": 63, "end_line": 73 }] },
+    { "id": "refuse", "type": "security", "label": "refuse", "sublabel": "정책 안내 후 종료", "pos": [560, 180], "size": [150, 60],
+      "sources": [{ "path": "src/agent.py", "line": 112, "end_line": 114 }, { "path": "src/guard.py", "line": 76, "end_line": 95 }] },
+    { "id": "planner", "type": "backend", "label": "planner", "sublabel": "의도·필수 도구 계획", "pos": [300, 320], "size": [150, 60],
+      "sources": [{ "path": "src/agent.py", "line": 117, "end_line": 152 }, { "path": "src/planner.py", "line": 33, "end_line": 77 }] },
+    { "id": "prefetch", "type": "backend", "label": "prefetch", "sublabel": "보조 검색 선실행", "pos": [580, 320], "size": [150, 60],
+      "sources": [{ "path": "src/agent.py", "line": 136, "end_line": 147 }, { "path": "src/agent.py", "line": 257, "end_line": 266 }] },
+    { "id": "agent", "type": "backend", "label": "agent (ReAct)", "sublabel": "도구 자율 선택", "pos": [300, 620], "size": [150, 60],
+      "sources": [{ "path": "src/agent.py", "line": 155, "end_line": 172 }] },
+    { "id": "tools", "type": "backend", "label": "도구 4종", "sublabel": "ToolNode", "pos": [580, 620], "size": [150, 60],
+      "sources": [{ "path": "src/tools.py", "line": 50, "end_line": 65 }, { "path": "src/tools.py", "line": 127, "end_line": 166 }] },
+    { "id": "check", "type": "backend", "label": "check", "sublabel": "필수 도구 호출 대조", "pos": [300, 800], "size": [150, 60],
+      "sources": [{ "path": "src/agent.py", "line": 179, "end_line": 200 }] },
+    { "id": "finalize", "type": "backend", "label": "finalize", "sublabel": "구조화 출력·근거 선별", "pos": [300, 960], "size": [150, 60],
+      "sources": [{ "path": "src/agent.py", "line": 203, "end_line": 249 }, { "path": "src/agent.py", "line": 298, "end_line": 328 }] },
+    { "id": "technique", "type": "database", "label": "technique 인덱스", "sublabel": "Chroma + BM25", "tag": "연습법 문서", "pos": [500, 860], "size": [170, 64],
+      "sources": [{ "path": "src/retriever.py", "line": 24, "end_line": 24 }, { "path": "src/retriever.py", "line": 99, "end_line": 129 }] },
+    { "id": "knowledge", "type": "database", "label": "knowledge 인덱스", "sublabel": "Chroma + BM25", "tag": "작곡가·작품·음악사", "pos": [720, 860], "size": [170, 64],
+      "sources": [{ "path": "src/retriever.py", "line": 24, "end_line": 24 }, { "path": "src/retriever.py", "line": 48, "end_line": 75 }] },
+    { "id": "repertoire", "type": "database", "label": "repertoire.json", "sublabel": "곡 난이도 DB", "tag": "Henle 등급", "pos": [940, 860], "size": [170, 64],
+      "sources": [{ "path": "src/config.py", "line": 14, "end_line": 14 }, { "path": "src/tools.py", "line": 69, "end_line": 71 }] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "data/ · 로컬 chroma_db", "wraps": ["technique", "knowledge", "repertoire"] }
+  ],
+  "connections": [
+    { "id": "user-api", "from": "user", "to": "api", "label": "POST /query", "variant": "emphasis" },
+    { "id": "api-guard", "from": "api", "to": "guard", "label": "run_query()", "variant": "emphasis" },
+    { "id": "guard-refuse", "from": "guard", "to": "refuse", "label": "refuse" },
+    { "id": "guard-planner", "from": "guard", "to": "planner", "label": "answer", "variant": "emphasis" },
+    { "id": "guard-limited", "from": "guard", "to": "agent", "label": "limited", "fromSide": "left", "toSide": "left" },
+    { "id": "planner-prefetch", "from": "planner", "to": "prefetch", "label": "보조 검색어 있음", "variant": "emphasis" },
+    { "id": "planner-agent", "from": "planner", "to": "agent", "label": "보조 검색어 없음" },
+    { "id": "prefetch-agent", "from": "prefetch", "to": "agent", "label": "검색 결과", "variant": "emphasis" },
+    { "id": "agent-tools", "from": "agent", "to": "tools", "label": "tool_calls" },
+    { "id": "tools-agent", "from": "tools", "to": "agent", "label": "결과" },
+    { "id": "agent-check", "from": "agent", "to": "check", "label": "답변 초안", "variant": "emphasis" },
+    { "id": "check-agent", "from": "check", "to": "agent", "label": "누락 도구 재요청 (1회)", "variant": "dashed" },
+    { "id": "check-finalize", "from": "check", "to": "finalize", "label": "통과", "variant": "emphasis" },
+    { "id": "tools-technique", "from": "tools", "to": "technique", "label": "search_technique" },
+    { "id": "tools-knowledge", "from": "tools", "to": "knowledge", "label": "search_music_knowledge" },
+    { "id": "tools-repertoire", "from": "tools", "to": "repertoire", "label": "get_piece · find_pieces" }
+  ],
+  "cards": [
+    { "dot": "rose", "title": "guard 라우팅", "items": ["answer: 정상 질문 → planner", "limited: 비클래식·건강 질문 → 정책 지침을 붙여 agent로", "refuse: 인젝션·저작권 원문·다른 악기·무관 주제 → 정해진 안내로 종료"] },
+    { "dot": "violet", "title": "LLM", "items": ["Bedrock Claude Sonnet 4.5 (temperature 0)", "guard·planner·agent·finalize가 같은 모델을 사용", "적응형 재시도(최대 10회)로 스로틀링 대응"] },
+    { "dot": "emerald", "title": "응답 조립 (run_query)", "items": ["answer: finalize의 구조화 출력", "contexts: 최종 답변이 인용한 doc_id만", "trace: guard → planner → 도구 호출 → check → finalize", "route, refusal_reason 추가 반환"] }
+  ]
+}

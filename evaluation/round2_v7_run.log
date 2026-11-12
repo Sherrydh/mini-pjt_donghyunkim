@@ -1,0 +1,43 @@
+[PASS] # 1 positive  route=answer  tools=['search_technique'] 16.6s
+[PASS] # 2 positive  route=answer  tools=['search_technique'] 13.3s
+[FAIL] # 3 positive  route=answer  tools=['search_technique'] 12.2s
+[FAIL] # 4 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 13.2s
+[PASS] # 5 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 14.5s
+[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 9.6s
+[PASS] # 7 positive  route=answer  tools=['search_technique', 'get_piece', 'find_pieces'] 16.2s
+[PASS] # 8 positive  route=answer  tools=['search_music_knowledge', 'search_technique', 'search_technique', 'get_piece'] 23.7s
+[PASS] # 9 negative  route=answer  tools=['search_technique', 'search_technique', 'get_piece', 'get_piece'] 12.7s
+[PASS] #10 negative  route=refuse  tools=[] 1.0s
+[PASS] #11 negative  route=limited tools=[] 5.5s
+[PASS] #12 negative  route=answer  tools=['search_music_knowledge'] 12.5s
+[PASS] #13 edge      route=answer  tools=['search_technique', 'search_music_knowledge', 'find_pieces', 'get_piece', 'get_piece', 'get_piece', 'get_piece', 'get_piece', 'get_piece', 'get_piece'] 26.2s
+[PASS] #14 edge      route=answer  tools=['search_technique', 'search_music_knowledge', 'find_pieces'] 29.5s
+[PASS] #15 edge      route=answer  tools=['search_music_knowledge', 'get_piece'] 13.9s
+[PASS] #16 edge      route=answer  tools=['search_technique'] 18.1s
+[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece'] 19.5s
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[PASS] #19 guardrail route=refuse  tools=[] 1.3s
+[PASS] #20 guardrail route=limited tools=[] 4.5s
+RAGAS 평가 중 (positive 8건)...
+{
+  "passed": 18,
+  "total": 20,
+  "by_category": {
+    "positive": "6/8",
+    "negative": "4/4",
+    "edge": "5/5",
+    "guardrail": "3/3"
+  },
+  "failed_ids": [
+    "3",
+    "4"
+  ],
+  "ragas": {
+    "faithfulness": 0.7382,
+    "answer_relevancy": 0.7375,
+    "context_recall": 0.6994,
+    "context_precision": 0.75
+  },
+  "avg_latency_s": 13.2
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2_v7_hitl.json

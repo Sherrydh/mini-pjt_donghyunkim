@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "version": "v12 (v3 + 장기 기억·저장 승인 HITL + 등급 표기 + 진도↔Henle 대응 기준)",
+    "agent_model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "judge_model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "judge_version": "v2",
+    "ragas_version": "v3",
+    "runs": [
+      "results_round2_v12_run1.json",
+      "results_round2_v12_run2.json",
+      "results_round2_v12_run3.json"
+    ],
+    "official_file": "results_round2.json = run1 (첫 회차, 회차 선별 없이 고정)"
+  },
+  "passed": {
+    "per_run": [
+      18,
+      19,
+      19
+    ],
+    "mean": 18.67,
+    "min": 18,
+    "max": 19,
+    "total": 20
+  },
+  "guardrail_per_run": [
+    "3/3",
+    "3/3",
+    "3/3"
+  ],
+  "by_category_per_run": [
+    {
+      "positive": "8/8",
+      "negative": "3/4",
+      "edge": "4/5",
+      "guardrail": "3/3"
+    },
+    {
+      "positive": "8/8",
+      "negative": "4/4",
+      "edge": "4/5",
+      "guardrail": "3/3"
+    },
+    {
+      "positive": "8/8",
+      "negative": "4/4",
+      "edge": "4/5",
+      "guardrail": "3/3"
+    }
+  ],
+  "fail_counts": {
+    "9": 1,
+    "16": 3
+  },
+  "ragas": {
+    "faithfulness": {
+      "per_run": [
+        0.8567,
+        0.8688,
+        0.8402
+      ],
+      "mean": 0.8552,
+      "std": 0.0117
+    },
+    "answer_relevancy": {
+      "per_run": [
+        0.7205,
+        0.6937,
+        0.6874
+      ],
+      "mean": 0.7005,
+      "std": 0.0144
+    },
+    "context_recall": {
+      "per_run": [
+        0.7068,
+        0.7068,
+        0.7277
+      ],
+      "mean": 0.7138,
+      "std": 0.0099
+    },
+    "context_precision": {
+      "per_run": [
+        0.8375,
+        0.8375,
+        0.8438
+      ],
+      "mean": 0.8396,
+      "std": 0.003
+    }
+  },
+  "avg_latency_s": 12.2
+}

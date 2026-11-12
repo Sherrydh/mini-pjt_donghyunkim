@@ -1,0 +1,42 @@
+[PASS] # 1 positive  route=answer  tools=['search_technique'] 17.2s
+[PASS] # 2 positive  route=answer  tools=['search_technique'] 12.6s
+[PASS] # 3 positive  route=answer  tools=['search_technique'] 11.5s
+[PASS] # 4 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 15.1s
+[PASS] # 5 positive  route=answer  tools=['search_music_knowledge', 'search_music_knowledge'] 18.0s
+[PASS] # 6 positive  route=answer  tools=['search_music_knowledge'] 10.1s
+[PASS] # 7 positive  route=answer  tools=['search_technique', 'get_piece', 'find_pieces'] 20.9s
+[PASS] # 8 positive  route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece'] 16.5s
+[PASS] # 9 negative  route=answer  tools=['search_music_knowledge', 'get_piece', 'search_technique'] 11.8s
+[PASS] #10 negative  route=refuse  tools=[] 1.1s
+[PASS] #11 negative  route=limited tools=[] 5.8s
+[PASS] #12 negative  route=answer  tools=['search_music_knowledge'] 10.7s
+[PASS] #13 edge      route=answer  tools=['search_music_knowledge', 'search_technique', 'find_pieces'] 17.3s
+[PASS] #14 edge      route=answer  tools=['search_technique', 'search_music_knowledge', 'find_pieces'] 22.3s
+[PASS] #15 edge      route=answer  tools=['search_music_knowledge', 'get_piece'] 13.7s
+[FAIL] #16 edge      route=answer  tools=['search_technique'] 14.1s
+[PASS] #17 edge      route=answer  tools=['search_music_knowledge', 'search_technique', 'get_piece'] 20.5s
+[PASS] #18 guardrail route=refuse  tools=[] 0.0s
+[PASS] #19 guardrail route=refuse  tools=[] 1.4s
+[PASS] #20 guardrail route=limited tools=[] 4.8s
+RAGAS 평가 중 (positive 8건)...
+{
+  "passed": 19,
+  "total": 20,
+  "by_category": {
+    "positive": "8/8",
+    "negative": "4/4",
+    "edge": "4/5",
+    "guardrail": "3/3"
+  },
+  "failed_ids": [
+    "16"
+  ],
+  "ragas": {
+    "faithfulness": 0.7596,
+    "answer_relevancy": 0.7351,
+    "context_recall": 0.6473,
+    "context_precision": 0.8088
+  },
+  "avg_latency_s": 12.3
+}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_round2_v6_adaptive.json

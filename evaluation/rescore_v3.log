@@ -1,0 +1,5 @@
+results_round1_rejudged.json {"faithfulness": 0.7923, "answer_relevancy": 0.6978, "context_recall": 0.808, "context_precision": 0.7156}
+results_round2_v1_planner.json {"faithfulness": 0.8065, "answer_relevancy": 0.7463, "context_recall": 0.7515, "context_precision": 0.9375}
+results_round2_v1_planner_sonnet45.json {"faithfulness": 0.9128, "answer_relevancy": 0.7867, "context_recall": 0.7917, "context_precision": 0.7939}
+results_round2_v2_coverage.json {"faithfulness": 0.8634, "answer_relevancy": 0.7834, "context_recall": 0.9167, "context_precision": 0.8182}
+results_round2_v2_coverage_sonnet45.json {"faithfulness": 0.8554, "answer_relevancy": 0.6895, "context_recall": 0.7708, "context_precision": 0.6444}

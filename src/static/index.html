@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>피아노 독학 길잡이</title>
+<script>
+  // 저장된 테마를 그리기 전에 적용해 깜빡임을 막는다 (system이면 속성 없음 → OS 설정 따름)
+  try { const t = localStorage.getItem("piano.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch {}
+</script>
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --panel: #ffffff;
+    --ink: #1f1d1a;
+    --muted: #6b665d;
+    --line: #e4dfd5;
+    --accent: #2f5d50;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3eee9;
+    --user: #2f5d50;
+    --user-ink: #ffffff;
+    --warn-soft: #fbf1dc;
+    --warn-ink: #7a5310;
+    --danger-soft: #f8e4e1;
+    --danger-ink: #8a2e22;
+    --code: #f1eee7;
+    --shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05);
+  }
+  /* 다크 팔레트: 사용자가 "다크"를 고르거나, "시스템"일 때 OS/브라우저가 다크면 적용 */
+  :root[data-theme="dark"] {
+    --bg: #151614;
+    --panel: #1e201d;
+    --ink: #ebe8e1;
+    --muted: #a29d93;
+    --line: #33362f;
+    --accent: #7fb8a4;
+    --accent-ink: #10201a;
+    --accent-soft: #24322c;
+    --user: #36564b;
+    --user-ink: #f2f7f4;
+    --warn-soft: #3a311f;
+    --warn-ink: #f0d39a;
+    --danger-soft: #3d2420;
+    --danger-ink: #f3b1a6;
+    --code: #262924;
+    --shadow: 0 1px 2px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151614;
+      --panel: #1e201d;
+      --ink: #ebe8e1;
+      --muted: #a29d93;
+      --line: #33362f;
+      --accent: #7fb8a4;
+      --accent-ink: #10201a;
+      --accent-soft: #24322c;
+      --user: #36564b;
+      --user-ink: #f2f7f4;
+      --warn-soft: #3a311f;
+      --warn-ink: #f0d39a;
+      --danger-soft: #3d2420;
+      --danger-ink: #f3b1a6;
+      --code: #262924;
+      --shadow: 0 1px 2px rgba(0,0,0,.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="light"] { color-scheme: light; }
+  .theme-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .theme-switch button { border: 0; border-radius: 0; padding: 5px 10px; font-size: 13px; background: var(--panel); color: var(--muted); }
+  .theme-switch button + button { border-left: 1px solid var(--line); }
+  .theme-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .topbar-actions { display: flex; gap: 8px; align-items: center; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  }
+  .app { display: grid; grid-template-columns: 280px 1fr; height: 100vh; }
+  aside {
+    border-right: 1px solid var(--line); background: var(--panel);
+    padding: 20px 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px;
+  }
+  .brand { font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
+  .brand small { display: block; font-weight: 400; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .section-title { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+  label { font-size: 13px; color: var(--muted); display: block; margin-bottom: 4px; }
+  input[type=text] {
+    width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--ink); font: inherit; font-size: 14px;
+  }
+  button {
+    font: inherit; font-size: 14px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--ink); padding: 7px 12px; cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  .profile-box { font-size: 13.5px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .profile-box dt { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .profile-box dt:first-child { margin-top: 0; }
+  .profile-box dd { margin: 0; }
+  .profile-empty { color: var(--muted); font-size: 13px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hint { font-size: 12.5px; color: var(--muted); }
+
+  main { display: flex; flex-direction: column; min-width: 0; height: 100vh; }
+  .topbar { display: none; }
+  .messages { flex: 1; overflow-y: auto; padding: 24px 16px 12px; }
+  .thread { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  .msg { display: flex; flex-direction: column; gap: 6px; }
+  .msg.user { align-items: flex-end; }
+  .bubble {
+    max-width: 88%; padding: 10px 14px; border-radius: 14px; background: var(--panel);
+    border: 1px solid var(--line); box-shadow: var(--shadow); overflow-wrap: anywhere;
+  }
+  .msg.user .bubble { background: var(--user); color: var(--user-ink); border-color: var(--user); white-space: pre-wrap; }
+  .bubble h3, .bubble h4 { margin: 10px 0 4px; font-size: 15px; }
+  .bubble p { margin: 6px 0; }
+  .bubble ul, .bubble ol { margin: 6px 0; padding-left: 20px; }
+  .bubble li { margin: 2px 0; }
+  .bubble a { color: var(--accent); }
+  .bubble table { border-collapse: collapse; font-size: 13.5px; margin: 6px 0; display: block; overflow-x: auto; }
+  .bubble td, .bubble th { border: 1px solid var(--line); padding: 4px 8px; }
+  .badge { display: inline-block; font-size: 11.5px; padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-right: 6px; }
+  .badge.limited { background: var(--warn-soft); color: var(--warn-ink); }
+  .badge.refuse { background: var(--danger-soft); color: var(--danger-ink); }
+  .meta { max-width: 88%; font-size: 12.5px; color: var(--muted); }
+  details { margin-top: 2px; }
+  details summary { cursor: pointer; user-select: none; }
+  details ul { margin: 6px 0 0; padding-left: 18px; }
+  details li { margin: 2px 0; }
+  .trace-step { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; background: var(--code); border-radius: 4px; padding: 0 4px; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; max-width: 88%; }
+  .chip { font-size: 13px; padding: 5px 10px; border-radius: 999px; }
+  .approve {
+    max-width: 88%; border: 1px solid var(--accent); background: var(--accent-soft);
+    border-radius: 12px; padding: 10px 14px; font-size: 14px;
+  }
+  .approve .row { margin-top: 8px; }
+  .approve.done { opacity: .7; }
+  .empty { text-align: center; color: var(--muted); padding: 40px 0 8px; }
+  .empty h2 { color: var(--ink); font-size: 20px; margin: 0 0 6px; }
+  .examples { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+  .typing { color: var(--muted); font-size: 13.5px; }
+  .typing::after { content: "…"; animation: dots 1.2s steps(3, end) infinite; }
+  @keyframes dots { 0% { content: "."; } 33% { content: ".."; } 66% { content: "..."; } }
+  .error { color: var(--danger-ink); background: var(--danger-soft); border-radius: 8px; padding: 8px 12px; font-size: 13.5px; max-width: 88%; }
+  form.composer { border-top: 1px solid var(--line); background: var(--panel); padding: 12px 16px; }
+  .composer-inner { max-width: 760px; margin: 0 auto; display: flex; gap: 8px; align-items: flex-end; }
+  textarea {
+    flex: 1; resize: none; min-height: 44px; max-height: 160px; padding: 10px 12px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit;
+  }
+  textarea:focus, input[type=text]:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  @media (max-width: 760px) {
+    .app { grid-template-columns: 1fr; }
+    aside { display: none; position: fixed; inset: 0; z-index: 10; }
+    aside.open { display: flex; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--panel); }
+    .bubble, .meta, .chips, .approve, .error { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside id="sidebar">
+    <div class="brand">피아노 독학 길잡이<small>연습법 · 작곡가·작품 · 다음 곡 추천</small></div>
+
+    <div>
+      <div class="section-title">사용자</div>
+      <label for="userId">사용자 ID (학습 프로필 저장용)</label>
+      <input type="text" id="userId" autocomplete="off" spellcheck="false">
+      <p class="hint">같은 ID로 오면 저장한 수준·곡을 기억합니다.</p>
+    </div>
+
+    <div>
+      <div class="section-title">대화</div>
+      <div class="row">
+        <button class="primary" id="newChat" type="button">새 대화</button>
+        <button id="closeSidebar" type="button" hidden>닫기</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">화면 테마</div>
+      <div class="theme-switch" role="group" aria-label="화면 테마">
+        <button type="button" data-theme-choice="system">시스템</button>
+        <button type="button" data-theme-choice="light">라이트</button>
+        <button type="button" data-theme-choice="dark">다크</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">내 학습 프로필</div>
+      <div id="profile" class="profile-box"><span class="profile-empty">불러오는 중</span></div>
+      <div class="row" style="margin-top:8px">
+        <button id="refreshProfile" type="button">새로고침</button>
+        <button id="deleteProfile" type="button">프로필 삭제</button>
+      </div>
+      <p class="hint">"체르니 100번 치고 있어요"처럼 말하면 저장할지 물어봅니다. 승인한 내용만 저장됩니다.</p>
+    </div>
+  </aside>
+
+  <main>
+    <div class="topbar">
+      <strong>피아노 독학 길잡이</strong>
+      <div class="topbar-actions">
+        <button id="themeQuick" type="button" title="테마 전환">테마</button>
+        <button id="openSidebar" type="button">메뉴</button>
+      </div>
+    </div>
+    <div class="messages" id="messages">
+      <div class="thread" id="thread"></div>
+    </div>
+    <form class="composer" id="composer">
+      <div class="composer-inner">
+        <textarea id="input" rows="1" placeholder="질문을 입력하세요 (Enter 전송, Shift+Enter 줄바꿈)"></textarea>
+        <button class="primary" id="send" type="submit">보내기</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const thread = $("thread"), messages = $("messages"), input = $("input"), sendBtn = $("send");
+  const EXAMPLES = [
+    "뭐부터 해야 돼?",
+    "모차르트 소나타 K.545 난이도랑 미리 익혀둘 테크닉 알려줘",
+    "체르니 100번 치고 있는데 다음에 뭐 칠까?",
+    "베토벤 월광 소나타라는 이름은 어디서 왔어?",
+    "페달은 언제 밟고 언제 떼야 해?",
+  ];
+  const ROUTE_LABEL = { clarify: "되묻기", limited: "제한 답변", refuse: "범위 밖" };
+
+  // ---------- 상태 ----------
+  const store = {
+    get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  };
+  const uid = () => (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()).slice(0, 8);
+  let userId = store.get("piano.userId", "user-" + uid());
+  let threadId = "t-" + uid();
+  let busy = false;
+  $("userId").value = userId;
+  store.set("piano.userId", userId);
+
+  // ---------- 마크다운(간이) 렌더링 ----------
+  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  function inline(s) {
+    return esc(s)
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/(https?:\/\/[^\s<)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  }
+  function renderMarkdown(text) {
+    const lines = text.replace(/\r/g, "").split("\n");
+    let html = "", list = null, table = [];
+    const closeList = () => { if (list) { html += `</${list}>`; list = null; } };
+    const flushTable = () => {
+      if (!table.length) return;
+      const rows = table.filter((r) => !/^\s*\|?\s*-{2,}/.test(r));
+      html += "<table>" + rows.map((r, i) => {
+        const cells = r.trim().replace(/^\||\|$/g, "").split("|");
+        const tag = i === 0 ? "th" : "td";
+        return "<tr>" + cells.map((c) => `<${tag}>${inline(c.trim())}</${tag}>`).join("") + "</tr>";
+      }).join("") + "</table>";
+      table = [];
+    };
+    for (const raw of lines) {
+      const line = raw.trimEnd();
+      if (/^\s*\|.*\|\s*$/.test(line)) { closeList(); table.push(line); continue; }
+      flushTable();
+      let m;
+      if ((m = line.match(/^#{1,6}\s+(.*)/))) { closeList(); html += `<h4>${inline(m[1])}</h4>`; }
+      else if ((m = line.match(/^\s*[-*•]\s+(.*)/))) { if (list !== "ul") { closeList(); html += "<ul>"; list = "ul"; } html += `<li>${inline(m[1])}</li>`; }
+      else if ((m = line.match(/^\s*(\d+)[.)]\s+(.*)/))) { if (list !== "ol") { closeList(); html += "<ol>"; list = "ol"; } html += `<li>${inline(m[2])}</li>`; }
+      else if (/^\s*-{3,}\s*$/.test(line)) { closeList(); html += "<hr>"; }
+      else if (!line.trim()) { closeList(); }
+      else { closeList(); html += `<p>${inline(line)}</p>`; }
+    }
+    flushTable(); closeList();
+    return html;
+  }
+
+  // ---------- 화면 요소 ----------
+  function scrollDown() { messages.scrollTop = messages.scrollHeight; }
+  function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
+
+  function showEmpty() {
+    thread.innerHTML = "";
+    const box = el("div", "empty");
+    box.innerHTML = "<h2>무엇을 도와드릴까요?</h2><div>연습법, 작곡가·작품 이야기, 다음에 칠 곡 추천을 물어보세요. 답변에는 근거 문서와 Henle 난이도 출처가 붙습니다.</div>";
+    const ex = el("div", "examples");
+    for (const q of EXAMPLES) {
+      const b = el("button", "chip"); b.type = "button"; b.textContent = q;
+      b.onclick = () => ask(q);
+      ex.appendChild(b);
+    }
+    box.appendChild(ex);
+    thread.appendChild(box);
+  }
+
+  function addUser(text) {
+    if (thread.querySelector(".empty")) thread.innerHTML = "";
+    const m = el("div", "msg user");
+    const b = el("div", "bubble"); b.textContent = text;
+    m.appendChild(b); thread.appendChild(m); scrollDown();
+  }
+
+  function parseOptions(answer) {
+    const m = answer.match(/\(예:\s*([^)]+)\)/);
+    return m ? m[1].split("/").map((s) => s.trim()).filter(Boolean) : [];
+  }
+
+  function addAssistant(res) {
+    const m = el("div", "msg assistant");
+    let answer = res.answer || "";
+    // 저장 승인 안내 문구는 별도 카드로 보여 주므로 본문에서 뗀다
+    const cut = answer.indexOf("[학습 프로필 저장 확인]");
+    if (cut >= 0) answer = answer.slice(0, cut).trim();
+
+    const bubble = el("div", "bubble");
+    const label = ROUTE_LABEL[res.route];
+    bubble.innerHTML = (label ? `<span class="badge ${res.route}">${label}</span>` : "") + renderMarkdown(answer);
+    m.appendChild(bubble);
+
+    if (res.route === "clarify") {
+      const raw = (res.clarify_options && res.clarify_options.length) ? res.clarify_options : parseOptions(res.answer || "");
+      const opts = [...new Set(raw.map((s) => s.trim()).filter(Boolean))];
+      if (opts.length) {
+        const chips = el("div", "chips");
+        for (const o of opts) {
+          const b = el("button", "chip"); b.type = "button"; b.textContent = o;
+          b.onclick = () => ask(o);
+          chips.appendChild(b);
+        }
+        m.appendChild(chips);
+      }
+    }
+
+    if (res.pending_action && res.pending_action.type === "save_profile") {
+      m.appendChild(approvalCard(res.pending_action));
+    }
+
+    const meta = el("div", "meta");
+    if (res.contexts && res.contexts.length) {
+      const d = el("details");
+      d.innerHTML = `<summary>근거 ${res.contexts.length}건</summary>`;
+      const ul = el("ul");
+      for (const c of res.contexts) {
+        const li = el("li");
+        const name = esc(c.doc_id.replace(/^repertoire:/, "곡 DB: "));
+        li.innerHTML = c.source && /^https?:/.test(c.source)
+          ? `${name} · <a href="${esc(c.source)}" target="_blank" rel="noopener">출처</a>`
+          : `${name} · ${esc(c.source || "자체 작성")}`;
+        ul.appendChild(li);
+      }
+      d.appendChild(ul); meta.appendChild(d);
+    }
+    if (res.trace && res.trace.length) {
+      const d = el("details");
+      d.innerHTML = `<summary>처리 과정 ${res.trace.length}단계</summary>`;
+      const ul = el("ul");
+      for (const t of res.trace) {
+        const li = el("li");
+        li.innerHTML = `<span class="trace-step">${esc(t.step)}</span> ${esc(String(t.input).slice(0, 90))}`;
+        li.title = String(t.output);
+        ul.appendChild(li);
+      }
+      d.appendChild(ul); meta.appendChild(d);
+    }
+    if (meta.childNodes.length) m.appendChild(meta);
+    thread.appendChild(m); scrollDown();
+  }
+
+  function approvalCard(pending) {
+    const card = el("div", "approve");
+    const p = pending.proposed || {};
+    const parts = [];
+    if (p.level) parts.push(`수준: ${esc(p.level)}`);
+    if (p.current_pieces && p.current_pieces.length) parts.push(`연습 중: ${esc(p.current_pieces.join(", "))}`);
+    if (p.completed_pieces && p.completed_pieces.length) parts.push(`끝낸 곡: ${esc(p.completed_pieces.join(", "))}`);
+    if (p.goal) parts.push(`목표: ${esc(p.goal)}`);
+    card.innerHTML = `<strong>학습 프로필에 저장할까요?</strong><div>${parts.join(" · ") || "(변경 없음)"}</div><div class="hint">저장하면 다음부터 이 정보에 맞춰 답합니다.</div>`;
+    const row = el("div", "row");
+    const yes = el("button", "primary"); yes.type = "button"; yes.textContent = "저장";
+    const no = el("button"); no.type = "button"; no.textContent = "저장 안 함";
+    const decide = async (word) => {
+      yes.disabled = no.disabled = true; card.classList.add("done");
+      await send({ thread_id: threadId, user_id: userId, resume: word }, word === "승인" ? "저장할게요" : "저장하지 않을게요");
+      loadProfile();
+    };
+    yes.onclick = () => decide("승인");
+    no.onclick = () => decide("거절");
+    row.append(yes, no); card.appendChild(row);
+    return card;
+  }
+
+  // ---------- API ----------
+  async function send(body, userText) {
+    if (busy) return;
+    busy = true; sendBtn.disabled = true;
+    if (userText) addUser(userText);
+    const typing = el("div", "typing", "답변을 준비하는 중"); thread.appendChild(typing); scrollDown();
+    try {
+      const r = await fetch("/query", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const data = await r.json();
+      typing.remove();
+      if (!r.ok) throw new Error(data.detail ? JSON.stringify(data.detail) : r.statusText);
+      addAssistant(data);
+      if (data.profile) renderProfile(data.profile);
+    } catch (e) {
+      typing.remove();
+      thread.appendChild(el("div", "error", "요청에 실패했습니다: " + esc(String(e.message || e))));
+      scrollDown();
+    } finally {
+      busy = false; sendBtn.disabled = false; input.focus();
+    }
+  }
+
+  function ask(text) {
+    const q = text.trim();
+    if (!q || busy) return;
+    send({ question: q, thread_id: threadId, user_id: userId }, q);
+  }
+
+  function renderProfile(p) {
+    const box = $("profile");
+    const items = [];
+    if (p.level) items.push(["수준", p.level]);
+    if (p.current_pieces && p.current_pieces.length) items.push(["연습 중인 곡", p.current_pieces.join(", ")]);
+    if (p.completed_pieces && p.completed_pieces.length) items.push(["끝낸 곡", p.completed_pieces.join(", ")]);
+    if (p.goal) items.push(["목표", p.goal]);
+    box.innerHTML = items.length
+      ? "<dl>" + items.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("") + "</dl>"
+      : '<span class="profile-empty">아직 저장된 정보가 없습니다.</span>';
+  }
+
+  async function loadProfile() {
+    try {
+      const r = await fetch(`/profile/${encodeURIComponent(userId)}`);
+      renderProfile((await r.json()).profile || {});
+    } catch { $("profile").innerHTML = '<span class="profile-empty">프로필을 불러오지 못했습니다.</span>'; }
+  }
+
+  // ---------- 이벤트 ----------
+  $("composer").addEventListener("submit", (e) => { e.preventDefault(); const q = input.value; input.value = ""; autosize(); ask(q); });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); $("composer").requestSubmit(); }
+  });
+  function autosize() { input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 160) + "px"; }
+  input.addEventListener("input", autosize);
+
+  $("newChat").onclick = () => { threadId = "t-" + uid(); showEmpty(); input.focus(); closeSidebar(); };
+  $("userId").addEventListener("change", (e) => {
+    const v = e.target.value.trim();
+    if (!v) { e.target.value = userId; return; }
+    userId = v; store.set("piano.userId", userId);
+    threadId = "t-" + uid(); showEmpty(); loadProfile();
+  });
+  $("refreshProfile").onclick = loadProfile;
+  $("deleteProfile").onclick = async () => {
+    if (!confirm("저장된 학습 프로필을 삭제할까요? 되돌릴 수 없습니다.")) return;
+    await fetch(`/profile/${encodeURIComponent(userId)}`, { method: "DELETE" });
+    loadProfile();
+  };
+  const sidebar = $("sidebar");
+  function closeSidebar() { sidebar.classList.remove("open"); }
+  $("openSidebar").onclick = () => { sidebar.classList.add("open"); $("closeSidebar").hidden = false; };
+  $("closeSidebar").onclick = closeSidebar;
+
+  // ---------- 테마 (시스템 / 라이트 / 다크) ----------
+  const THEME_LABEL = { system: "시스템", light: "라이트", dark: "다크" };
+  const THEME_ORDER = ["system", "light", "dark"];
+  let theme = store.get("piano.theme", "system");
+  if (!THEME_ORDER.includes(theme)) theme = "system";
+  function applyTheme(t) {
+    theme = t;
+    if (t === "system") delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = t;
+    store.set("piano.theme", t);
+    document.querySelectorAll("[data-theme-choice]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.themeChoice === t)));
+    $("themeQuick").textContent = "테마: " + THEME_LABEL[t];
+  }
+  document.querySelectorAll("[data-theme-choice]").forEach((b) => { b.onclick = () => applyTheme(b.dataset.themeChoice); });
+  $("themeQuick").onclick = () => applyTheme(THEME_ORDER[(THEME_ORDER.indexOf(theme) + 1) % THEME_ORDER.length]);
+  applyTheme(theme);
+
+  showEmpty();
+  loadProfile();
+  input.focus();
+})();
+</script>
+</body>
+</html>

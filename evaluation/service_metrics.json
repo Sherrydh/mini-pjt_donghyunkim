@@ -1,0 +1,52 @@
+[
+  {
+    "file": "results_round1_rejudged.json",
+    "grade_mentions": 5,
+    "grade_claims_with_piece": 3,
+    "grade_claims_without_piece": 2,
+    "hallucinated_grades": 0,
+    "hallucinations": [],
+    "factual_answers": 13,
+    "cited_answers": 12,
+    "citation_rate": 0.923,
+    "uncited_ids": [
+      "16"
+    ]
+  },
+  {
+    "file": "results_round2_v12_run1.json",
+    "grade_mentions": 22,
+    "grade_claims_with_piece": 15,
+    "grade_claims_without_piece": 7,
+    "hallucinated_grades": 0,
+    "hallucinations": [],
+    "factual_answers": 13,
+    "cited_answers": 13,
+    "citation_rate": 1.0,
+    "uncited_ids": []
+  },
+  {
+    "file": "results_round2_v12_run2.json",
+    "grade_mentions": 20,
+    "grade_claims_with_piece": 16,
+    "grade_claims_without_piece": 4,
+    "hallucinated_grades": 0,
+    "hallucinations": [],
+    "factual_answers": 13,
+    "cited_answers": 13,
+    "citation_rate": 1.0,
+    "uncited_ids": []
+  },
+  {
+    "file": "results_round2_v12_run3.json",
+    "grade_mentions": 19,
+    "grade_claims_with_piece": 14,
+    "grade_claims_without_piece": 5,
+    "hallucinated_grades": 0,
+    "hallucinations": [],
+    "factual_answers": 13,
+    "cited_answers": 13,
+    "citation_rate": 1.0,
+    "uncited_ids": []
+  }
+]

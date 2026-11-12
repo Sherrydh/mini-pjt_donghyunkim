@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "24b9b196-ccb2-4d30-a026-e25668af1801",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\Admin\\Desktop\\mini-pjt_donghyunkim\\.archify\\architecture-piano-agent-20261112-095329\\candidate.json",
+  "output": "C:\\Users\\Admin\\Desktop\\mini-pjt_donghyunkim\\.archify\\architecture-piano-agent-20261112-095329\\piano-agent.html",
+  "specification": {
+    "sha256": "ff5df9f017aa01e51f58615e4ae9405d19ccf5fa5835abfed1b612f39538b97b",
+    "bytes": 6501
+  },
+  "artifact": {
+    "sha256": "1a9b61d7652422b92613fd88ae53174f2e9f8dfed1e23600360512c20641ffc6",
+    "bytes": 868332
+  }
+}

@@ -115,6 +115,24 @@ def _build_retriever(index: str, k: int) -> EnsembleRetriever:
     return EnsembleRetriever(retrievers=[bm25, vector], weights=[0.4, 0.6])
 
 
+def rerank(question: str, items: list[dict]) -> list[dict]:
+    """모은 근거를 질문과의 임베딩 코사인 유사도 순으로 다시 정렬한다 (리랭킹).
+
+    도구는 호출 순서대로 근거를 쌓기 때문에, planner 의 보조 검색(prefetch) 결과가 항상 맨 앞에 온다.
+    finalize 와 API contexts 가 질문에 가장 관련된 근거부터 보도록 순서를 바로잡는다.
+    """
+    if len(items) <= 1:
+        # 근거가 0~1건이면 정렬할 필요가 없다. 호출부가 rerank_score 를 읽으므로 값은 채워 둔다.
+        return [{**it, "rerank_score": 1.0} for it in items]
+    import numpy as np
+
+    vecs = np.array(embeddings.embed_documents([it["text"] for it in items]))
+    q = np.array(embeddings.embed_query(question))
+    sims = (vecs @ q) / (np.linalg.norm(vecs, axis=1) * np.linalg.norm(q) + 1e-10)
+    order = np.argsort(-sims)
+    return [{**items[i], "rerank_score": round(float(sims[i]), 4)} for i in order]
+
+
 def retrieve(query: str, index: str, k: int = 4) -> list[dict]:
     """질의에 대한 상위 k개 청크를 {doc_id, text, source, title} 형태로 반환한다."""
     docs = get_retriever(index, k).invoke(query)[:k]

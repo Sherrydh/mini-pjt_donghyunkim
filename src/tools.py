@@ -27,6 +27,11 @@ def start_collection() -> list:
     return bucket
 
 
+def collected() -> list:
+    """현재 요청에서 도구들이 모은 근거 목록 (수집 순서)."""
+    return _collected.get() or []
+
+
 def _collect(items: list[dict]) -> None:
     bucket = _collected.get()
     if bucket is None:

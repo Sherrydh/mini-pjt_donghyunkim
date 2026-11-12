@@ -1,0 +1,7 @@
+[FAIL] M1 #13 후속: 작은 손 + 쇼팽 → 수준 답변 | behavior={'turn1_route': True, 'turn2_pending_save': True, 'saved_level_contains': True} answer=FAIL 64.4s
+[PASS] M2 #16 후속: 뭐부터 → 완전 처음 | behavior={'turn1_route': True, 'turn2_pending_save': True, 'saved_level_contains': True} answer=PASS 18.7s
+[PASS] M3 대상 곡 빠짐: 이 곡 어려워? → K.545 | behavior={'turn1_route': True, 'turn2_pending_save': True} answer=PASS 11.1s
+[PASS] M4 목표 빠짐: 연습 얼마나 → 취미 30분 | behavior={'turn1_route': True, 'turn2_pending_save': True, 'saved_goal_contains': True} answer=PASS 16.0s
+[PASS] M5 장기 기억 재사용: 끝낸 곡 저장 → 새 대화에서 추천 | behavior={'turn1_pending_save': True, 'turn3_route': True, 'turn3_profile_loaded': True} answer=PASS 39.7s
+{"passed": 4, "total": 5, "behavior_ok": 5, "answer_ok": 4, "failed_ids": ["M1"]}
+saved → C:\Users\Admin\Desktop\mini-pjt_donghyunkim\evaluation\results_multiturn.json

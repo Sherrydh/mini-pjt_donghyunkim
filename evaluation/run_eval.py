@@ -31,6 +31,7 @@ from src.agent import run_query  # noqa: E402
 from src.config import LLM_MODEL, REGION, embeddings  # noqa: E402
 
 EVAL_DIR = ROOT / "evaluation"
+NON_TOOL_STEPS = ("guard", "refuse", "load_profile", "planner", "ask_user", "check", "rerank", "finalize", "propose_memory", "approve_memory")
 JUDGE_MODEL = os.getenv("JUDGE_MODEL", "us.anthropic.claude-haiku-4-5-20251001-v1:0")
 judge_llm = ChatBedrockConverse(
     model=JUDGE_MODEL,
@@ -105,10 +106,20 @@ def judge_case(case: dict, result: dict) -> dict:
 
 
 # ---------- RAGAS ----------
-RAGAS_VERSION = "v2"  # v1: answer_relevancy 역생성 질문이 영어로 생성됨
+# v1: answer_relevancy 역생성 질문이 영어로 생성됨
+# v2: + 역생성 질문 언어를 답변 언어에 맞춤
+# v3: + context_precision 에서 '정답의 일부를 뒷받침하는 근거'도 useful(1)로 보도록 명시
+RAGAS_VERSION = "v3"
 LANG_HINT = (
     "\nWrite the generated question in the same language as the response "
     "(if the response is in Korean, the question must be in Korean)."
+)
+# 근거는 문서의 한 섹션이고 reference 는 여러 사실을 묶은 문장이라, Haiku judge 가 "일부만 뒷받침 → incomplete → 0" 으로
+# 판정해 정답 근거까지 0점이 됐다 (#4 녹턴 작곡 시기 청크 등, round2_report 참고). RAGAS 의 원래 정의(답을 만드는 데
+# 도움이 됐는가)에 맞게 부분 근거도 1로 보도록 명시한다. 1·2차 모든 결과를 이 설정으로 다시 계산한다.
+PARTIAL_HINT = (
+    "\nA context counts as useful (verdict 1) if it supports ANY part of the given answer, even if it does not "
+    "cover the whole answer by itself. Give 0 only when the context contributes nothing to the answer."
 )
 
 
@@ -129,6 +140,9 @@ def run_ragas(rows: list[dict]) -> tuple[dict, list[dict]]:
     qg = answer_relevancy.question_generation
     if LANG_HINT not in qg.instruction:
         qg.instruction += LANG_HINT
+    cp = context_precision.context_precision_prompt
+    if PARTIAL_HINT not in cp.instruction:
+        cp.instruction += PARTIAL_HINT
 
     dataset = EvaluationDataset.from_list(
         [
@@ -247,6 +261,8 @@ def main() -> None:
         cases = [c for c in cases if c["id"] in wanted]
     references = json.loads((EVAL_DIR / "reference.json").read_text(encoding="utf-8"))
 
+    suffix = (f"_{args.tag}" if args.tag else "") + ("_partial" if args.ids else "")
+    progress = EVAL_DIR / f"results_round{args.round}{suffix}.inprogress.json"
     records = []
     for case in cases:
         t0 = time.time()
@@ -264,7 +280,7 @@ def main() -> None:
             "input": case["input"],
             "route": result["route"],
             "answer": result["answer"],
-            "tools_called": [t["step"] for t in result["trace"] if t["step"] not in ("guard", "refuse", "planner", "check", "finalize")],
+            "tools_called": [t["step"] for t in result["trace"] if t["step"] not in NON_TOOL_STEPS],
             "contexts": result["contexts"],
             "trace": result["trace"],
             "latency_s": latency,
@@ -273,7 +289,10 @@ def main() -> None:
         records.append(rec)
         mark = "PASS" if verdict["passed"] else "FAIL"
         print(f"[{mark}] #{case['id']:>2} {case['category']:<9} route={result['route']:<7} "
-              f"tools={rec['tools_called']} {latency}s", flush=True)
+              f"tools={rec['tools_called']} {latency}s" + (f"  ERROR {error[:200]}" if error else ""), flush=True)
+        # 중간 저장: 실행이 끊겨도 진행분이 남도록 케이스마다 기록한다.
+        progress.write_text(json.dumps({"model": LLM_MODEL, "cases": records}, ensure_ascii=False, indent=2),
+                            encoding="utf-8")
 
     ragas_means, ragas_cases = {}, []
     ragas_rows = [
@@ -301,9 +320,9 @@ def main() -> None:
         "ragas_per_case": ragas_cases,
         "cases": records,
     }
-    suffix = (f"_{args.tag}" if args.tag else "") + ("_partial" if args.ids else "")
     path = EVAL_DIR / f"results_round{args.round}{suffix}.json"
     path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    progress.unlink(missing_ok=True)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     print(f"saved → {path}")
 

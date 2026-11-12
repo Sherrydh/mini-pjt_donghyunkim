@@ -4,7 +4,7 @@
     "agent_model": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
     "judge_model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
     "judge_version": "v2",
-    "ragas_version": "v2",
+    "ragas_version": "v3",
     "embedding_model": "amazon.titan-embed-text-v2:0",
     "run_at": "2026-11-11T07:36:19+00:00",
     "partial": false
@@ -25,12 +25,18 @@
       "16"
     ],
     "ragas": {
+      "faithfulness": 0.9128,
+      "answer_relevancy": 0.7867,
+      "context_recall": 0.7917,
+      "context_precision": 0.7939
+    },
+    "avg_latency_s": 23.3,
+    "ragas_original": {
       "faithfulness": 0.9194,
       "answer_relevancy": 0.754,
       "context_recall": 0.7917,
       "context_precision": 0.6458
-    },
-    "avg_latency_s": 23.3
+    }
   },
   "ragas_per_case": [
     {
@@ -38,35 +44,35 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9355,
       "context_recall": 0.75,
-      "context_precision": 0.8333
+      "context_precision": 0.8056
     },
     {
       "id": "2",
       "faithfulness": 1.0,
-      "answer_relevancy": 0.6681,
+      "answer_relevancy": 0.6434,
       "context_recall": 1.0,
       "context_precision": 1.0
     },
     {
       "id": "3",
-      "faithfulness": 0.7857,
-      "answer_relevancy": 0.4021,
+      "faithfulness": 0.7333,
+      "answer_relevancy": 0.6726,
       "context_recall": 0.6667,
-      "context_precision": 0.5
+      "context_precision": 0.5833
     },
     {
       "id": "4",
       "faithfulness": 1.0,
-      "answer_relevancy": 0.8316,
+      "answer_relevancy": 0.8328,
       "context_recall": 1.0,
-      "context_precision": 0.0
+      "context_precision": 0.6792
     },
     {
       "id": "5",
       "faithfulness": 1.0,
       "answer_relevancy": 0.8645,
       "context_recall": 0.75,
-      "context_precision": 0.8333
+      "context_precision": 0.95
     },
     {
       "id": "6",
@@ -78,14 +84,14 @@
     {
       "id": "7",
       "faithfulness": 0.7692,
-      "answer_relevancy": 0.7316,
+      "answer_relevancy": 0.7422,
       "context_recall": 0.5,
-      "context_precision": 0.0
+      "context_precision": 0.3333
     },
     {
       "id": "8",
       "faithfulness": 1.0,
-      "answer_relevancy": 0.7235,
+      "answer_relevancy": 0.7279,
       "context_recall": 0.6667,
       "context_precision": 1.0
     }

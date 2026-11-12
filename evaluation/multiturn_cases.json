@@ -1,0 +1,74 @@
+{
+  "_note": "대화형(여러 턴) 평가 케이스. 단발형 인-아웃 세트(test_queries.csv)와 별도로, thread_id·user_id 를 쓰는 실제 사용 흐름을 스크립트로 재현한다. turns 의 각 항목은 순서대로 보내는 사용자 메시지이며, 'resume' 은 저장 승인 응답이다. 최종 답(judge_turn 번째 응답)을 test_queries.csv 와 같은 judge 로 채점하고, 대화 동작(expect)은 코드로 확인한다.",
+  "cases": [
+    {
+      "id": "M1",
+      "title": "#13 후속: 작은 손 + 쇼팽 → 수준 답변",
+      "turns": [
+        {"question": "손이 작아서 옥타브가 겨우 닿는데 쇼팽 곡 칠 수 있을까?"},
+        {"question": "체르니 100번 치고 있어요"},
+        {"resume": "승인"}
+      ],
+      "judge_turn": 2,
+      "expected_traits": "사용자 수준(체르니 100번)을 반영한 쇼팽 곡 후보; 곡별 Henle 난이도와 출처; 작은 손·옥타브에 대한 요령 또는 고려",
+      "forbidden": "DB에 없는 곡 추천; 근거 없는 난이도",
+      "expected_tools": "find_pieces",
+      "expect": {"turn1_route": "answer", "turn2_pending_save": true, "saved_level_contains": "체르니"}
+    },
+    {
+      "id": "M2",
+      "title": "#16 후속: 뭐부터 → 완전 처음",
+      "turns": [
+        {"question": "뭐부터 해야 돼?"},
+        {"question": "완전 처음이에요. 피아노를 한 번도 배운 적 없어요"},
+        {"resume": "승인"}
+      ],
+      "judge_turn": 2,
+      "expected_traits": "완전 입문자를 위한 첫 단계(자세·손 모양·악보 읽기 등); 출처 표기",
+      "forbidden": "중급 이상 곡을 첫 과제로 제시; 근거 없는 단정",
+      "expected_tools": "search_technique",
+      "expect": {"turn1_route": "clarify", "turn2_pending_save": true, "saved_level_contains": "처음"}
+    },
+    {
+      "id": "M3",
+      "title": "대상 곡 빠짐: 이 곡 어려워? → K.545",
+      "turns": [
+        {"question": "이 곡 어려워?"},
+        {"question": "모차르트 소나타 K.545요"}
+      ],
+      "judge_turn": 2,
+      "expected_traits": "K.545의 Henle 난이도 5; 출처 표기; 필요한 테크닉 또는 어려운 부분 언급",
+      "forbidden": "지어낸 난이도 등급",
+      "expected_tools": "get_piece",
+      "expect": {"turn1_route": "clarify", "turn2_pending_save": false}
+    },
+    {
+      "id": "M4",
+      "title": "목표 빠짐: 연습 얼마나 → 취미 30분",
+      "turns": [
+        {"question": "연습 얼마나 해야 돼?"},
+        {"question": "취미로 하고 있고 하루 30분 정도 가능해요"},
+        {"resume": "승인"}
+      ],
+      "judge_turn": 2,
+      "expected_traits": "하루 30분 기준의 연습 배분 또는 루틴 제안; 짧고 자주 연습하는 원칙 등 근거 기반 설명; 출처 표기",
+      "forbidden": "무리한 연습 시간 권장",
+      "expected_tools": "search_technique",
+      "expect": {"turn1_route": "clarify", "turn2_pending_save": true, "saved_goal_contains": "30"}
+    },
+    {
+      "id": "M5",
+      "title": "장기 기억 재사용: 끝낸 곡 저장 → 새 대화에서 추천",
+      "turns": [
+        {"question": "클레멘티 소나티네 Op.36 No.1 끝냈어요"},
+        {"resume": "승인"},
+        {"question": "다음 곡 추천해줘", "new_thread": true}
+      ],
+      "judge_turn": 3,
+      "expected_traits": "Op.36 No.1 이후 단계에 맞는 DB 곡 추천; 곡별 Henle 난이도와 출처; 끝낸 곡(Op.36 No.1)은 다시 추천하지 않음",
+      "forbidden": "DB에 없는 곡 추천; 끝낸 곡 재추천",
+      "expected_tools": "find_pieces",
+      "expect": {"turn1_pending_save": true, "turn3_route": "answer", "turn3_profile_loaded": "클레멘티"}
+    }
+  ]
+}
