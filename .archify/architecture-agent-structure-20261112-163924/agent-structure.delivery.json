@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "11994584-9785-41c6-9055-ca540c2e3d0c",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\Admin\\Desktop\\mini-pjt_donghyunkim\\.archify\\architecture-agent-structure-20261112-163924\\candidate.json",
+  "output": "C:\\Users\\Admin\\Desktop\\mini-pjt_donghyunkim\\.archify\\architecture-agent-structure-20261112-163924\\agent-structure.html",
+  "specification": {
+    "sha256": "6181873cb0b2410059b7ef3fec5d38b3f1ae31468cdef6a7eec8b3d39af10942",
+    "bytes": 6562
+  },
+  "artifact": {
+    "sha256": "06998747ecade17907486c7a90d534685333835a27471787994c708b0ca6996a",
+    "bytes": 877884
+  }
+}
