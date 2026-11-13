@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: hitl-clarify-design
+expected_outcome: |
+  되묻기에 interrupt를 쓰는 것의 단점(재개 시 노드 재실행, 기억 없음)을 설명하고 되묻기는 일반 대화 턴, HITL은 저장 같은 되돌리기 어려운 쓰기 승인에 쓰라고 권하며, 승인 대기 중 새 질문이 오면 옛 승인 버튼이 엉뚱한 제안을 승인하는 문제와 제안 ID·만료 처리를 다룸.

@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: low-ragas-korean-diagnosis
+expected_outcome: |
+  점수 원인을 에이전트 vs 평가기로 나누고, answer_relevancy 역생성 질문 언어 문제, context_precision 부분 근거·근거 순서(리랭킹), judge에 contexts 제공·출처는 표기 여부만 판정, 1차 답을 재생성하지 않고 재채점해 기준선을 맞추라는 우선순위를 제시.

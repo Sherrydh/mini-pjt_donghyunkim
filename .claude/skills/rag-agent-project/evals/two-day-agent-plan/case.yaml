@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: two-day-agent-plan
+expected_outcome: |
+  스펙(SERVICE.md·인-아웃 세트)을 코드보다 먼저 두되 세트를 코퍼스와 대조하라고 하고, 평가 스크립트의 중간 저장·재채점, judge에 contexts 제공, 1차 재채점 기준선, 반복 측정 같은 평가 함정을 구체적으로 짚는 이틀 계획.
