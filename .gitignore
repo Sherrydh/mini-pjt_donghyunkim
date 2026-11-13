@@ -34,3 +34,6 @@ Thumbs.db
 # HITL 체크포인트 (대화 상태)
 checkpoints.sqlite*
 memory.sqlite*
+
+# Streamlit 비밀값 (AWS 키 등) — 절대 커밋 금지
+.streamlit/secrets.toml

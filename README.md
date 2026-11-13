@@ -11,15 +11,15 @@
 
 | # | 패턴 | Day | 적용 | 코드 |
 |---|---|---|---|---|
-| 1 | LCEL chain + Pydantic 구조화 출력 | 1 | 가드 분류(`GuardDecision`), 계획(`Plan`), 최종 답변 검수(`FinalAnswer`: answer·인용 doc_id·grounded)를 모두 구조화 출력으로 받는다. finalize 는 `ChatPromptTemplate \| llm.with_structured_output()` 체인 | `src/guard.py`, `src/planner.py`, `src/agent.py:310` |
-| 2 | ReAct (도구 자율 선택) | 3 | `llm.bind_tools(TOOLS)` 에이전트가 도구 4종을 고르고 조합한다. planner 계획은 지시로만 주고 실행은 에이전트가 정한다 | `src/agent.py:252` |
-| 3 | RAG (하이브리드·리랭킹·쿼리 확장) | 2 | Chroma(Titan Embed v2) + BM25(kiwipiepy 형태소) 앙상블, 질문 유사도 **리랭킹**, planner 가 요구 항목별 보조 검색어를 만드는 **쿼리 확장**(prefetch 노드가 먼저 실행) | `src/retriever.py`, `src/agent.py:171` |
+| 1 | LCEL chain + Pydantic 구조화 출력 | 1 | 가드 분류(`GuardDecision`), 계획(`Plan`), 최종 답변 검수(`FinalAnswer`: answer·인용 doc_id·grounded)를 모두 구조화 출력으로 받는다. finalize 는 `ChatPromptTemplate \| llm.with_structured_output()` 체인 | `src/guard.py`, `src/planner.py`, `src/agent.py:311` |
+| 2 | ReAct (도구 자율 선택) | 3 | `llm.bind_tools(TOOLS)` 에이전트가 도구 4종을 고르고 조합한다. planner 계획은 지시로만 주고 실행은 에이전트가 정한다 | `src/agent.py:253` |
+| 3 | RAG (하이브리드·리랭킹·쿼리 확장) | 2 | Chroma(Titan Embed v2) + BM25(kiwipiepy 형태소) 앙상블, 질문 유사도 **리랭킹**, planner 가 요구 항목별 보조 검색어를 만드는 **쿼리 확장**(prefetch 노드가 먼저 실행) | `src/retriever.py`, `src/agent.py:172` |
 | 4 | 도구 다중 결합 | 4 | 한 질문에 문서 검색 2종 + 곡 DB 조회·필터를 함께 쓴다. 예: "달빛 배경·난이도·연습 순서" → `search_music_knowledge` + `get_piece` + `search_technique` | `src/tools.py` |
 | 6 | 가드레일 (인젝션·범위·저작권·건강) | 5 | 규칙 기반 인젝션 사전 차단 + LLM 분류 → answer / limited / refuse. 거절은 고정 문구, 건강·비클래식은 제한 답변 지침 | `src/guard.py` |
-| 7 | HITL (승인) | 5 | 학습 프로필 저장 전에 `interrupt()` 로 멈추고 사용자 승인을 받은 경우에만 저장. 추출과 승인 대기를 별도 노드로 나눠, 재개할 때 LLM 추출이 다시 실행되지 않게 했다 | `src/agent.py:413`, `src/agent.py:433` |
+| 7 | HITL (승인) | 5 | 학습 프로필 저장 전에 `interrupt()` 로 멈추고 사용자 승인을 받은 경우에만 저장. 추출과 승인 대기를 별도 노드로 나눠, 재개할 때 LLM 추출이 다시 실행되지 않게 했다 | `src/agent.py:414`, `src/agent.py:435` |
 | 8 | 미들웨어 (재시도) | 5 | Bedrock ThrottlingException 대비 boto3 적응형 재시도(최대 10회) | `src/config.py` |
-| 10 | Plan-Execute · 장기 메모리 | 7 | **planner** 가 의도·필수 도구·체크리스트를 정하고 **check** 가 실제 호출과 대조한다. **LangGraph SqliteStore** 학습 프로필(수준·연습 중인 곡·끝낸 곡·목표)로, 이미 아는 정보는 되묻지 않는다. 대화 기록은 SQLite 체크포인터 | `src/planner.py`, `src/memory.py`, `src/agent.py:278` |
-| 11 | Observability · Trace | 7 | 응답 `trace` 에 노드·도구 단계별 입출력을 기록한다. `.env` 에 LangSmith 키가 있으면 LangSmith 트레이싱 | `src/agent.py:549`, `src/config.py` |
+| 10 | Plan-Execute · 장기 메모리 | 7 | **planner** 가 의도·필수 도구·체크리스트를 정하고 **check** 가 실제 호출과 대조한다. **LangGraph SqliteStore** 학습 프로필(수준·연습 중인 곡·끝낸 곡·목표)로, 이미 아는 정보는 되묻지 않는다. 대화 기록은 SQLite 체크포인터 | `src/planner.py`, `src/memory.py`, `src/agent.py:279` |
+| 11 | Observability · Trace | 7 | 응답 `trace` 에 노드·도구 단계별 입출력을 기록한다. `.env` 에 LangSmith 키가 있으면 LangSmith 트레이싱 | `src/agent.py:584`, `src/config.py` |
 | 12 | 평가 (RAGAS · LLM-as-Judge) | 7 | 20건 인-아웃 세트: LLM-as-judge 통과 판정 + 코드 도구 검사 + RAGAS 4지표. 대화형 5시나리오 평가, SERVICE.md 지표(난이도 환각·출처 표기율) 코드 측정 | `evaluation/` |
 
 적용하지 않은 패턴과 이유:
@@ -109,6 +109,32 @@ curl -X POST http://localhost:8000/query -H "Content-Type: application/json" -d 
 - `evaluation.measure_service_metrics`: 난이도 환각·출처 표기율
 - `pytest`: API 계약 5건 + 기억·승인 시나리오 8건
 
+**6. Streamlit 화면 (배포용)**
+```bash
+.venv/Scripts/python -m streamlit run streamlit_app.py
+```
+http://localhost:8501 에서 같은 에이전트를 Streamlit 채팅 화면으로 쓴다(되묻기 선택지, 프로필 저장 승인, 근거·처리 과정).
+
+## 배포 (Streamlit Community Cloud)
+
+1. GitHub 에 push 한다. `.env`, `.streamlit/secrets.toml` 은 `.gitignore` 에 있어 올라가지 않는다.
+2. https://share.streamlit.io 에 GitHub 계정으로 로그인 → **Create app** → 이 저장소, 브랜치 `main`, Main file `streamlit_app.py` 를 고른다.
+3. **Advanced settings** 에서 Python 버전을 **3.12** 로 고르고, **Secrets** 에 아래를 붙여 넣는다.
+   ```toml
+   AWS_ACCESS_KEY_ID = "..."
+   AWS_SECRET_ACCESS_KEY = "..."
+   AWS_DEFAULT_REGION = "us-east-1"
+   LLM_MODEL = "global.anthropic.claude-haiku-4-5-20251001-v1:0"
+   APP_PASSWORD = "시연용 비밀번호"        # 비워 두면 누구나 접속 가능
+   MAX_QUESTIONS_PER_SESSION = "30"
+   ```
+4. **Deploy** → `https://<앱이름>.streamlit.app` 주소가 생긴다. 첫 접속 때 검색 인덱스를 만들어 1~2분 걸린다.
+
+주의
+- 질문마다 이 AWS 계정으로 Bedrock 요금이 나간다. `APP_PASSWORD` 를 걸고, Bedrock 호출 권한만 있는 IAM 키를 쓰고, 시연이 끝나면 앱을 Delete 한다.
+- 무료 서버는 재시작하면 `memory.sqlite`(학습 프로필)·`checkpoints.sqlite`(대화)·`chroma_db/` 가 초기화된다. 데모 용도로는 문제없다.
+- Streamlit 은 화면만 제공한다. 과제 규약 API(`POST /query`)는 로컬 FastAPI 서버(`bash run.sh`)로 확인한다.
+
 ## RAGAS 평가 결과
 2차는 v12 를 같은 코드로 3회 측정한 평균 ± 표준편차다. positive 8건 기준, judge 는 Haiku 4.5.
 
@@ -168,13 +194,14 @@ SERVICE.md 지표도 측정했다.
 - **응답 시간 12초.** 질문당 LLM 호출이 최소 4회다.
 
 ## 핵심 코드 위치
-- `src/agent.py:459` — 메인 에이전트 그래프 (노드·엣지 정의, 단발형 `graph` / 대화형 `chat_graph`)
-- `src/agent.py:171` — planner 노드 (계획·쿼리 확장·추천 시 대응 기준 자동 검색)
-- `src/agent.py:252` — ReAct 에이전트 / `src/agent.py:278` — check / `src/agent.py:353` — finalize(리랭킹 + 검수)
-- `src/agent.py:413`, `src/agent.py:433` — 프로필 저장 제안·승인(HITL interrupt)
-- `src/agent.py:549` — `run_query()` (단발형·대화형·승인 재개 진입점)
+- `src/agent.py:462` — 메인 에이전트 그래프 (노드·엣지 정의, 단발형 `graph` / 대화형 `chat_graph`)
+- `src/agent.py:172` — planner 노드 (계획·쿼리 확장·추천 시 대응 기준 자동 검색)
+- `src/agent.py:253` — ReAct 에이전트 / `src/agent.py:279` — check / `src/agent.py:354` — finalize(리랭킹 + 검수)
+- `src/agent.py:414`, `src/agent.py:435` — 프로필 저장 제안·승인(HITL interrupt)
+- `src/agent.py:584` — `run_query()` (단발형·대화형·승인 재개 진입점)
 - `src/tools.py` — 도메인 도구 4종 (`search_technique`, `search_music_knowledge`, `get_piece`, `find_pieces`)
 - `src/retriever.py` — RAG 파이프라인 (섹션 청킹, Chroma + BM25 앙상블, `rerank()`)
+- `streamlit_app.py` — Streamlit 배포용 채팅 화면 (`run_query()` 직접 호출)
 - `src/planner.py` — 계획 수립 (의도·must_cover·쿼리 확장·되묻기 판단)
 - `src/guard.py` — 입력 가드레일 / `src/memory.py` — 장기 기억(학습 프로필)
 - `src/api.py` — FastAPI 서버 / `src/static/index.html` — 웹 채팅 화면

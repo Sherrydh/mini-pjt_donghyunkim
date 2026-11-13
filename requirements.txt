@@ -29,6 +29,7 @@ langchain-mcp-adapters==0.3.2
 # 미니 PJT: API 서버 · 평가
 fastapi
 uvicorn
+streamlit
 pandas
 # ragas 0.4.3 은 의존성 scikit-network 가 Python 3.14 wheel 이 없어 -r 설치에서 빼고 따로 설치한다 (README '실행 방법' 참고)
 # ragas==0.4.3
