@@ -15,7 +15,8 @@ REPERTOIRE_PATH = DATA_DIR / "repertoire.json"
 CHROMA_DIR = ROOT / "chroma_db"
 
 REGION = os.getenv("AWS_DEFAULT_REGION", "us-east-1")
-LLM_MODEL = os.getenv("LLM_MODEL", "us.anthropic.claude-sonnet-4-5-20250929-v1:0")
+# 서비스·평가 기본 모델: Haiku 4.5 (global 추론 프로필). 1·2차 공식 평가와 같은 설정이다.
+LLM_MODEL = os.getenv("LLM_MODEL", "global.anthropic.claude-haiku-4-5-20251001-v1:0")
 EMBED_MODEL = os.getenv("EMBED_MODEL", "amazon.titan-embed-text-v2:0")
 
 # LangSmith: .env 에 LANGSMITH_API_KEY 가 있고 LANGSMITH_TRACING=true 면 LangChain이 자동으로 트레이스를 보낸다.

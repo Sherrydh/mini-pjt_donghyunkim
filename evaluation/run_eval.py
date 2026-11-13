@@ -32,7 +32,8 @@ from src.config import LLM_MODEL, REGION, embeddings  # noqa: E402
 
 EVAL_DIR = ROOT / "evaluation"
 NON_TOOL_STEPS = ("guard", "refuse", "load_profile", "planner", "ask_user", "check", "rerank", "finalize", "propose_memory", "approve_memory")
-JUDGE_MODEL = os.getenv("JUDGE_MODEL", "us.anthropic.claude-haiku-4-5-20251001-v1:0")
+# judge 는 1·2차 공식 평가와 같은 Haiku 4.5 (global 추론 프로필)로 고정한다.
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", "global.anthropic.claude-haiku-4-5-20251001-v1:0")
 judge_llm = ChatBedrockConverse(
     model=JUDGE_MODEL,
     region_name=REGION,
