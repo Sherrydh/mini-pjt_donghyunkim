@@ -1,7 +1,7 @@
 # 1차 자체 평가 리포트 (Round 1)
 
 > **추가 (평가기 수정 후 재채점):** 아래 J1·J2 와 RAGAS answer_relevancy 언어 불일치 결함을 고친 뒤, 1차 답변을 다시 생성하지 않고 저장된 그대로 재채점했다 → `results_round1_rejudged.json`.
-> 결과는 **14/20** 이다. RAGAS v3 · `global.` Haiku judge 기준으로 faithfulness 0.803, answer_relevancy 0.699, context_recall 0.808, context_precision 0.716 이다. `us.` judge 로 채점한 값(`results_round1_rejudged_usjudge.json`)도 통과 수와 실패 케이스가 같았다. 남은 실패 6건은 이 리포트에서 에이전트 문제로 분류한 6건(#5, #8, #12, #13, #14, #16)과 같다. 2차 비교의 기준값이다. 자세한 내용은 `round2_report.md` 에 있다.
+> 결과는 **14/20** 이다. RAGAS v3 · `global.` Haiku judge 기준으로 faithfulness 0.803, answer_relevancy 0.699, context_recall 0.808, context_precision 0.716 이다. `us.` judge 로 채점한 값(`archive/results_round1_rejudged_usjudge.json`)도 통과 수와 실패 케이스가 같았다. 남은 실패 6건은 이 리포트에서 에이전트 문제로 분류한 6건(#5, #8, #12, #13, #14, #16)과 같다. 2차 비교의 기준값이다. 자세한 내용은 `round2_report.md` 에 있다.
 > 이 아래 본문의 RAGAS 수치는 수정 전 평가기(v1) 기준이라, 위 재채점 값과 다르다.
 
 - 실행: 2026-11-11 · `python -m evaluation.run_eval --round 1` → `evaluation/results_round1.json`

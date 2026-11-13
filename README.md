@@ -28,6 +28,8 @@
 
 ## 아키텍처
 
+노드별 입출력까지 보이는 다이어그램: [`docs/architecture.html`](docs/architecture.html) (브라우저로 연다)
+
 ```
 POST /query ─▶ guard ─┬─ refuse ─────────────────────────────────────────────────────────▶ 응답
                       └─ load_profile (장기 기억) ─┬─ planner ─┬─ ask_user (대화형 되묻기 턴) ─▶ 응답
@@ -87,6 +89,7 @@ LLM_MODEL=global.anthropic.claude-haiku-4-5-20251001-v1:0
 ```bash
 .venv/Scripts/python -m uvicorn src.api:app --port 8000
 ```
+또는 `bash run.sh` (서버), `bash run.sh eval` (인-아웃 세트 평가), `bash run.sh test` (pytest).
 브라우저에서 http://localhost:8000 을 연다. 채팅, 되묻기 선택지 버튼, 프로필 저장 승인 카드, 근거·처리 과정 보기, 학습 프로필 조회·삭제를 할 수 있다. 첫 요청 때 Chroma 인덱스를 만든다.
 
 **4. API 직접 호출**
