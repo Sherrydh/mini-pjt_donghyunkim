@@ -64,6 +64,7 @@ class AgentState(TypedDict):
     user_id: str  # 장기 기억 사용자 (없으면 "")
     profile: dict  # 이번 턴 시작 시 프로필
     proposed_profile: dict  # 저장 제안 (없으면 {})
+    proposal_id: str  # 저장 제안 ID — 오래된 승인 카드가 새 제안을 승인하지 않도록 구분한다
     memory_result: str  # "saved" | "rejected" | ""
     trace: Annotated[list[dict], operator.add]
 
@@ -416,6 +417,7 @@ def propose_memory(state: AgentState) -> dict:
     proposed = memory.merge(state.get("profile") or {}, update)
     return {
         "proposed_profile": proposed,
+        "proposal_id": uuid.uuid4().hex[:12] if proposed else "",
         "trace": [
             {
                 "step": "propose_memory",
@@ -437,6 +439,7 @@ def approve_memory(state: AgentState) -> dict:
     decision = interrupt(
         {
             "type": "save_profile",
+            "proposal_id": state.get("proposal_id", ""),
             "message": "이 내용을 내 학습 프로필에 저장할까요? 저장하면 다음부터 이 정보에 맞춰 답합니다. (승인/거절)",
             "current": state.get("profile") or {},
             "proposed": proposed,
@@ -542,7 +545,39 @@ def _turn_input(question: str, conversational: bool, user_id: str) -> dict:
         "user_id": user_id,
         "profile": {},
         "proposed_profile": {},
+        "proposal_id": "",
         "memory_result": "",
+    }
+
+
+def _pending_proposal(g, config: dict) -> dict | None:
+    """이 대화에서 승인을 기다리는 저장 제안 (없으면 None)."""
+    snapshot = g.get_state(config)
+    for task in snapshot.tasks or ():
+        for intr in getattr(task, "interrupts", ()) or ():
+            return intr.value
+    return None
+
+
+def _expired_resume(thread_id: str, user_id: str | None, resume: str, pending: dict | None) -> dict:
+    """대기 중인 제안이 없거나 다른 제안일 때의 승인 응답: 아무것도 저장하지 않는다."""
+    if pending:
+        answer = ("이 저장 제안은 만료됐습니다. 그 사이 새 질문을 보내 새 제안이 만들어졌습니다. "
+                  "아무것도 저장하지 않았으니 가장 최근 저장 확인에서 선택해 주세요.")
+    else:
+        answer = ("이 저장 제안은 만료됐습니다. 승인하기 전에 새 질문을 보내 제안이 취소됐고, 아무것도 저장하지 않았습니다. "
+                  "저장하려면 수준이나 연습 중인 곡을 다시 알려 주세요.")
+    return {
+        "answer": answer,
+        "contexts": [],
+        "trace": [{"step": "approve_memory", "input": resume, "output": "expired"}],
+        "route": "expired",
+        "refusal_reason": "",
+        "status": "complete",
+        "thread_id": thread_id,
+        "pending_action": None,
+        "profile": memory.get_profile(user_id) if user_id else None,
+        "clarify_options": [],
     }
 
 
@@ -551,6 +586,7 @@ def run_query(
     thread_id: str | None = None,
     resume: str | None = None,
     user_id: str | None = None,
+    proposal_id: str | None = None,
 ) -> dict:
     """질문을 처리한다.
 
@@ -558,6 +594,8 @@ def run_query(
     - thread_id (+ user_id): 대화형. 대화 기록을 유지하고, 모호하면 되묻는 턴(route="clarify")으로 답한다.
       user_id 가 있으면 프로필을 읽어 쓰고, 새 정보가 있으면 저장 승인을 요청한다(status="need_input").
     - thread_id + resume: 승인 대기 중인 저장 제안에 답한다 ("승인" / "거절").
+      대기 중인 제안이 없거나(그 사이 새 질문을 보내 취소됨) proposal_id 가 지금 제안과 다르면
+      아무것도 저장하지 않고 route="expired" 로 답한다.
     """
     bucket = start_collection()
     config: dict = {"recursion_limit": 40, "run_name": "piano-study-agent"}
@@ -566,6 +604,10 @@ def run_query(
     if thread_id:
         g = chat_graph
         config["configurable"] = {"thread_id": thread_id}
+        if resume is not None:
+            pending = _pending_proposal(g, config)
+            if pending is None or (proposal_id and pending.get("proposal_id") != proposal_id):
+                return _expired_resume(thread_id, user_id, resume, pending)
         prev = g.get_state(config).values or {}
         trace_start, msg_start = len(prev.get("trace", [])), len(prev.get("messages", []))
         payload = Command(resume=resume) if resume is not None else _turn_input(question, True, user_id or "")

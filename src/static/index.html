@@ -143,6 +143,7 @@
   }
   .approve .row { margin-top: 8px; }
   .approve.done { opacity: .7; }
+  .approve.expired strong { text-decoration: line-through; }
   .empty { text-align: center; color: var(--muted); padding: 40px 0 8px; }
   .empty h2 { color: var(--ink); font-size: 20px; margin: 0 0 6px; }
   .examples { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
@@ -393,7 +394,7 @@
     const no = el("button"); no.type = "button"; no.textContent = "저장 안 함";
     const decide = async (word) => {
       yes.disabled = no.disabled = true; card.classList.add("done");
-      await send({ thread_id: threadId, user_id: userId, resume: word }, word === "승인" ? "저장할게요" : "저장하지 않을게요");
+      await send({ thread_id: threadId, user_id: userId, resume: word, proposal_id: pending.proposal_id || undefined }, word === "승인" ? "저장할게요" : "저장하지 않을게요");
       loadProfile();
     };
     yes.onclick = () => decide("승인");
@@ -424,9 +425,19 @@
     }
   }
 
+  // 승인하지 않은 저장 카드는 새 질문을 보내면 서버에서 취소되므로 화면에서도 만료 처리한다
+  function expireApprovalCards() {
+    for (const card of thread.querySelectorAll(".approve:not(.done)")) {
+      card.querySelectorAll("button").forEach((b) => { b.disabled = true; });
+      card.classList.add("done", "expired");
+      card.appendChild(el("div", "hint", "새 질문을 보내 이 제안은 취소됐습니다. 저장하지 않았습니다."));
+    }
+  }
+
   function ask(text) {
     const q = text.trim();
     if (!q || busy) return;
+    expireApprovalCards();
     send({ question: q, thread_id: threadId, user_id: userId }, q);
   }
 

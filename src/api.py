@@ -26,6 +26,10 @@ class QueryRequest(BaseModel):
     thread_id: str | None = Field(default=None, min_length=1, max_length=100, description="대화 ID (선택)")
     user_id: str | None = Field(default=None, min_length=1, max_length=100, description="학습 프로필 사용자 ID (선택)")
     resume: str | None = Field(default=None, min_length=1, max_length=200, description="저장 승인 응답: 승인/거절 (선택)")
+    proposal_id: str | None = Field(
+        default=None, min_length=1, max_length=64,
+        description="승인하려는 저장 제안 ID (pending_action.proposal_id). 지금 대기 중인 제안과 다르면 저장하지 않는다 (선택)",
+    )
 
     @model_validator(mode="after")
     def _check_combination(self):
@@ -52,7 +56,7 @@ class QueryResponse(BaseModel):
     answer: str
     contexts: list[Context]
     trace: list[TraceStep]
-    route: str = Field(description="answer | limited | refuse | clarify")
+    route: str = Field(description="answer | limited | refuse | clarify | expired (만료된 저장 제안에 대한 승인 응답)")
     refusal_reason: str = ""
     status: str = Field(default="complete", description="complete | need_input (되묻기 또는 저장 승인 대기)")
     thread_id: str | None = None
@@ -68,7 +72,7 @@ def health():
 
 @app.post("/query", response_model=QueryResponse)
 async def query(req: QueryRequest) -> dict:
-    return await run_in_threadpool(run_query, req.question, req.thread_id, req.resume, req.user_id)
+    return await run_in_threadpool(run_query, req.question, req.thread_id, req.resume, req.user_id, req.proposal_id)
 
 
 @app.get("/profile/{user_id}")

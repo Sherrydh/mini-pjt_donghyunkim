@@ -108,3 +108,38 @@ def test_single_turn_never_pauses():
 
 def test_resume_without_thread_id_rejected():
     assert client.post("/query", json={"resume": "승인"}).status_code == 422
+
+
+def test_stale_approval_after_new_question_saves_nothing(user):
+    """저장 승인에 답하지 않고 새 질문을 보내면 그 제안은 취소된다.
+    그 뒤 옛 카드로 승인해도 저장하지 않고, 직전 답변을 되풀이하지 않는다 (route=expired)."""
+    tid = _id("t")
+    first = _ask(question="체르니 30번 치고 있어요. 다음 곡 추천해줘", thread_id=tid, user_id=user)
+    old = first["pending_action"]
+    assert old and old.get("proposal_id"), first
+    second = _ask(question="페달은 언제 밟고 언제 떼야 해?", thread_id=tid, user_id=user)
+    assert second["pending_action"] is None, second  # 새 질문엔 저장할 정보가 없음 → 대기 제안 없음
+
+    late = _ask(thread_id=tid, user_id=user, resume="승인", proposal_id=old["proposal_id"])
+    assert late["route"] == "expired" and late["status"] == "complete", late
+    assert "만료" in late["answer"] and late["answer"] != second["answer"]
+    assert client.get(f"/profile/{user}").json()["profile"] == {}
+
+
+def test_stale_card_cannot_approve_newer_proposal(user):
+    """옛 카드의 proposal_id 로는 그 뒤 새로 생긴 제안을 승인할 수 없다. 최신 ID 로는 승인된다."""
+    tid = _id("t")
+    first = _ask(question="체르니 30번 치고 있어요", thread_id=tid, user_id=user)
+    old = first["pending_action"]
+    assert old, first
+    second = _ask(question="클레멘티 소나티네 Op.36 No.1 끝냈어요", thread_id=tid, user_id=user)
+    new = second["pending_action"]
+    assert new and new["proposal_id"] != old["proposal_id"], second
+
+    late = _ask(thread_id=tid, user_id=user, resume="승인", proposal_id=old["proposal_id"])
+    assert late["route"] == "expired", late
+    assert client.get(f"/profile/{user}").json()["profile"] == {}
+
+    ok = _ask(thread_id=tid, user_id=user, resume="승인", proposal_id=new["proposal_id"])
+    assert any(t["step"] == "approve_memory" and t["output"] == "saved" for t in ok["trace"]), ok
+    assert client.get(f"/profile/{user}").json()["profile"].get("completed_pieces")
